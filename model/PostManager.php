@@ -4,11 +4,29 @@ require_once('model/Manager.php');
 
 class PostManager extends Manager {
     
-    /* fonctions de managment des comments :
-        - function getPosts() + dbConnect() ($db = $this->dbConnect())
-        - function getPost() + dbConnect() ($db = $this->dbConnect())
+    public function createPost() {
+        $db = $this->dbConnect();
+
+    }
+
+    public function getPostsList() {
+        $db = $this->dbConnect();
+
+    }
+
+    public function getPost() {
+        $db = $this->dbConnect();
+
+    }
+
+    public function updatePost() {
+        $db = $this->dbConnect();
+
+    }
+
+    public function deletePost() {
+        $db = $this->dbConnect();
+        
+    }
     
-    + connexion bdd (private function dbConnect())
-     
-    */
 }
