@@ -3,12 +3,28 @@
 require_once('model/Manager.php');
 
 class CommentManager extends Manager {
-    
-   /* fonctions de managment des comments :
-        - function getComments() + dbConnect() ($db = $this->dbConnect())
-        - function getComment() + dbConnect() ($db = $this->dbConnect())
-    
-    + connexion bdd (private function dbConnect())
-     
-    */
+
+    public function postComment() {
+        $db = $this->dbConnect();
+
+
+    }
+
+    public function getComments() {
+        $db = $this->dbConnect();
+
+
+    }
+
+    public function updateComment() {
+        $db = $this->dbConnect();
+
+
+    }
+
+    public function deleteComment() {
+        $db = $this->dbConnect();
+
+        
+    }
 }
