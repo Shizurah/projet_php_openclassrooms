@@ -17,11 +17,11 @@ class PostManager extends Manager {
     }
 
     public function getPostsList() {
-        $req = $this->_db->query('SELECT * FROM posts');
+        $req = $this->_db->query('SELECT id, title, DATE_FORMAT(postDate, \'%d/%m/%Y à %Hh%imin%ss\') AS postDate_fr, content FROM posts ORDER BY postDate DESC');
     }
 
     public function get($postId) {    
-        $req = $this->_db->query('SELECT * FROM posts WHERE id =' . $postId);
+        $req = $this->_db->query('SELECT id, title, DATE_FORMAT(postDate, \'%d/%m/%Y à %Hh%imin%ss\') AS postDate_fr, content FROM posts WHERE id =' . $postId);
     }
 
     public function update(Post $post) {       
