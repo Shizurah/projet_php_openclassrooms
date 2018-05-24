@@ -28,6 +28,7 @@ class PostsManager {
 
     public function get($postId) {    
         $req = $this->_db->query('SELECT id, title, DATE_FORMAT(postDate, \'%d/%m/%Y à %Hh%imin%ss\') AS postDate_fr, content FROM posts WHERE id =' . $postId);
+        return $req;
     }
 
     public function update(Post $post) {       
