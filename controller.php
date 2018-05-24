@@ -10,6 +10,7 @@ require_once('model/PostsManager.php');
 function listPosts() {  
     $postsManager = new PostsManager();
     $req = $postsManager->getPostsList();
+    $req1 = $postsManager->getPostsList();
    
     require_once('view/display_postsList.php');
 }
