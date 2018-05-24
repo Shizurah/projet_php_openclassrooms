@@ -42,28 +42,9 @@ require_once('header.php');
             ?>
         </div>
 
-        <aside>
-            <h3>A PROPOS DE L'AUTEUR</h3>
-            <div id="author-avatar">
-                <img src="public/images/jean.png" alt="Jean Forteroche">    
-            </div>
-            
-            <h3>CHAPITRES</h3>
-            <?php
-            while ($data = $req1->fetch()) {
-                $post = new Post($data);
-            ?>
-            
-            <a href="view/display_post_and_comments.php?postId=<?= $post->id() ?>" class="chapters-list"><?= $post->title() ?></a><br/>
-
-            <?php
-            }
-            $req1->closeCursor();
-            ?>
-        </aside>
-        
-        <!-- <aside></aside> 
-        Balise aside pour afficher une liste déroulante contenant chaque chapitre, du + récent au plus ancien, de sorte à pouvoir cliquer et se rendre directement sur un chapitre ? -->
+        <?php
+        require_once('aside.php');
+        ?>
     </section>
 
 </body>
