@@ -4,7 +4,7 @@ class Post {
 
     private $_id;
     private $_title;
-    private $_postDate;
+    private $_postDateFr;
     private $_content;
 
     // public function __construct($title, $content) { // passer un tableau $data en paramètre, et appeler méthode d'hydratation ?
@@ -13,7 +13,7 @@ class Post {
     // }
 
     public function __construct(array $data) { // ce code permet de gérer des objets plutôt que des array pour manipuler la réponse apportée par une requête sql
-        $this->hydrate(array $data);
+        $this->hydrate($data);
     }
 
     public function hydrate(array $data) {
@@ -36,8 +36,8 @@ class Post {
         return $this->_title;
     }
 
-    public function postDate() {
-        return $this->_postDate;
+    public function postDateFr() {
+        return $this->_postDateFr;
     }
 
     public function content() {
@@ -56,8 +56,8 @@ class Post {
         }  
     }
 
-    public function setPostDate($date) {
-        $this->_date = $date;
+    public function setPostDateFr($date) {
+        $this->_postDateFr = $date;
     }
 
     public function setContent($content) {

@@ -1,6 +1,6 @@
 header {
-    width: 80%;
-    margin: auto;
+    /* width: 80%; */
+    /* margin: auto; */
     display: flex;
     justify-content: center;
 }
@@ -54,3 +54,15 @@ h2 {
     font-weight: normal;
     font-size: 1.5em;
 }
+
+/* //////////////////////////// */
+
+body {
+    width: 68.5%;
+    margin: auto;
+}
+
+/* .posts {
+    width: 60%;
+    margin: auto;
+} */
