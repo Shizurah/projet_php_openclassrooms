@@ -18,8 +18,7 @@ require_once('header.php');
     <section>
         <div id="chapters-container">
             <?php
-            while ($data = $req->fetch()) {
-                $post = new Post($data);
+            foreach($posts as $post) {
             ?>
 
             <div class="posts">
@@ -31,14 +30,12 @@ require_once('header.php');
 
                     <br/><br/>
 
-                    <em>Publié le <?= $post->postDateFr() ?></em> - <a href="view/display_post_and_comments.php?postId=<?= $post->id() ?>">Voir les commentaires</a>
+                    <em>Publié le <?= $post->postDateFr() ?></em> - <a href="index.php?action=post&amp;postId=<?= $post->id() ?>">Voir les commentaires</a>
                 </p>
             </div>
-        
 
             <?php
             }
-            $req->closeCursor();
             ?>
         </div>
 

@@ -23,12 +23,24 @@ class PostsManager {
 
     public function getPostsList() {
         $req = $this->_db->query('SELECT id, title, DATE_FORMAT(postDate, \'%d/%m/%Y\') AS postDateFr, content FROM posts ORDER BY postDate');
-        return $req;
+
+        $posts = [];
+
+        while ($data = $req->fetch()) {
+            $posts[] = new Post($data);
+        }
+
+        return $posts;
     }
 
-    public function get($postId) {    
-        $req = $this->_db->query('SELECT id, title, DATE_FORMAT(postDate, \'%d/%m/%Y à %Hh%imin%ss\') AS postDate_fr, content FROM posts WHERE id =' . $postId);
-        return $req;
+    public function get($postId) {
+        $postId = (int) $postId;
+
+        $req = $this->_db->query('SELECT id, title, DATE_FORMAT(postDate, \'%d/%m/%Y\') AS postDateFr, content FROM posts WHERE id = '.$postId);
+
+        $data = $req->fetch();
+
+        return new Post($data);
     }
 
     public function update(Post $post) {       
