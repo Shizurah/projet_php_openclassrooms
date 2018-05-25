@@ -5,13 +5,21 @@ class Comment {
     private $_id;
     private $_postId;
     private $_author;
-    private $_date;
+    private $_commentDateFr;
     private $_content;
 
-    public function __construct($postId, $author, $content) {
-        $this->setPostId($postId);
-        $this->setAuthor($author);
-        $this->setContent($content);
+    public function __construct(array $data) {
+        $this->hydrate($data);
+    }
+
+    public function hydrate(array $data) {
+        foreach ($data as $key => $value) {
+            $method = 'set' .ucfirst($key);
+
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
     }
 
     // getters :
@@ -28,7 +36,7 @@ class Comment {
         return $this->_author;
     }
 
-    public function date() {
+    public function commentDateFr() {
         return $this->_date;
     }
 
@@ -39,9 +47,9 @@ class Comment {
 
     //setters :
 
-    // public function setId($id) {
-    //     $this->_id = $id;
-    // }
+    public function setId($id) {
+        $this->_id = $id;
+    }
 
     public function setPostId($postId) {
         if (is_int($postId) && $postId > 0)
@@ -54,9 +62,9 @@ class Comment {
         }
     }
 
-    // public function setDate($date) {
-    //     $this->_date = $date;
-    // }
+    public function setCommentDateFr($date) {
+        $this->_date = $date;
+    }
 
     public function setContent($content) {
         if (is_string($content)) {

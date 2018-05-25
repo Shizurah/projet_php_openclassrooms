@@ -13,7 +13,8 @@ header div:first-child {
     margin-bottom: 20px;
 }
 
-#titles, #connexion-btn {
+#titles, 
+#connexion-btn {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -41,7 +42,8 @@ header div:first-child {
     color: white;
 }
 
-h1, h2 {
+h1, 
+h2 {
     color: white;
     margin: 0;
 }
@@ -81,7 +83,7 @@ aside {
 
 .posts {
     background-color: #e5e3da;
-    padding: 20px;
+    padding: 20px 25px 20px 25px;
     margin-bottom: 20px;
     text-align: justify;
     border-radius: 5px;
@@ -111,7 +113,39 @@ aside {
     color: #0e6c91;   
 }
 
-h4 {
+h4, h3 {
     text-align: center;
     margin-top: 10px;
+}
+
+
+
+/* AFFICHAGE D UN POST ET DE SES COMMENTAIRES  */
+
+/* #chapter {
+    background-color:
+} */
+
+#main-wrapper-for-one-post {
+    margin-top: 50px;
+}
+
+#comment-form {
+    display: none;
+}
+
+#comments-title {
+    text-align: left;
+    font-size: 1.2em;
+}
+
+#writing-comment-btn,
+#sending-comment-btn {
+    cursor: pointer;
+}
+
+.comments {
+    border: 1px solid #b5b8bc;
+    padding: 20px;
+    width: 50%;
 }

@@ -6,8 +6,8 @@ require_once('model/PostsManager.php');
 require_once('model/User.php');
 require_once('model/UserManager.php');
 
-// require_once('Comment.php';)
-// require_once('CommentManager.php';)
+require_once('model/Comment.php');
+require_once('model/CommentsManager.php');
 
 
 
@@ -17,13 +17,16 @@ function listPosts() {
    
     require_once('view/display_postsList.php');
 
-    $req->closeCursor();
+    // $posts->closeCursor();
 }
 
 
 function post($postId) {
     $postsManager = new PostsManager();
     $post = $postsManager->get($postId);
+
+    $commentsManager = new CommentsManager();
+    $comments = $commentsManager->getComments($postId);
     
     require_once('view/display_post_and_comments.php');
 }
