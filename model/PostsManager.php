@@ -22,7 +22,7 @@ class PostsManager {
     }
 
     public function getPostsList() {
-        $req = $this->_db->query('SELECT id, title, DATE_FORMAT(postDate, \'%d/%m/%Y\') AS postDateFr, content FROM posts ORDER BY postDate');
+        $req = $this->_db->query('SELECT id, title, DATE_FORMAT(postDate, \'%d/%m/%Y\') AS postDateFr, content FROM posts ORDER BY postDateFr');
 
         $posts = [];
 
@@ -48,9 +48,9 @@ class PostsManager {
         $req = $this->_db->prepare('UPDATE posts SET title = :post_title, content = :post_content WHERE id = :post_id');
 
         $req->execute(array(
-            ':post_title' => $post->title(),
-            ':post_content' => $post->content(),
-            ':post_id' => $post->id()
+            'post_title' => $post->title(),
+            'post_content' => $post->content(),
+            'post_id' => $post->id()
         ));
     }
 
