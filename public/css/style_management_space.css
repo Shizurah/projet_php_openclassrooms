@@ -1,0 +1,131 @@
+body {
+    width: 68.5%;
+    margin: auto;
+    font-family: "Raleway", sans-serif;
+}
+
+h2,
+h3 {
+    position: relative;
+    left: 150px;
+    font-family: "El Messiri", sans-serif;
+    font-weight: normal;
+}
+
+h3 {
+    text-decoration: underline;
+}
+
+#header-management-space {
+    display: flex;
+    position: relative;
+}
+
+#header-management-space img {
+    width: 100%;
+}
+
+#header-management-space h2,
+#header-management-space a {
+    position: absolute; 
+}
+
+#header-management-space h2 {
+    color: white;
+    margin: 0;
+    left: 28%;
+    top: 35%;
+}
+
+#deconnexion-btn {
+    top: 10px;
+    right: 10px;
+    text-decoration: none;
+    color: #d6d8db;
+    display: block;
+    border: 1px solid #d6d8db;
+    border-radius: 3px;
+    padding: 5px 8px 5px 8px;
+    font-size: 0.8em;  
+}
+
+#deconnexion-btn:hover {
+    background-color: rgba(142, 143, 145, 0.5);
+    color: white;
+}
+
+h3 {
+    margin-top: 80px;
+}
+
+table {
+    margin: auto;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #b5b8bc;
+    padding: 20px;
+    text-align: center;
+}
+
+.actions-btns {
+    display: flex;
+}
+
+#updating-btn,
+#deleting-btn,
+#writting-btn {
+    display: flex;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    margin-right: 40px;
+}
+
+#writting-btn {
+    margin: auto;
+    border: 1.8px solid rgb(54, 102, 51);
+    background-image: linear-gradient(rgb(109, 204, 104), rgb(60, 114, 59));
+    padding: 10px 12px;
+}
+
+#updating-btn {
+    margin-left: 40px;
+    border: 1.8px solid rgb(38, 120, 145);
+    background-image: linear-gradient(rgb(95, 204, 231), rgb(44, 139, 167));
+}
+
+#deleting-btn {
+    border: 1.8px solid rgb(160, 25, 23);
+    background-image: linear-gradient(rgb(240, 114, 112), rgb(208, 36, 32));
+}
+
+#deleting-btn:hover {
+    background-image: linear-gradient(rgba(240, 114, 112, 0.7), rgba(208, 36, 32, 0.7));
+    /* background-color: rgba(142, 143, 145, 0.8); */
+}
+
+#updating-btn:hover {
+    background-image: linear-gradient(rgba(95, 204, 231, 0.7), rgba(44, 139, 167, 0.7));
+}
+
+#writting-btn:hover {
+    background-image: linear-gradient(rgba(109, 204, 104, 0.7), rgba(60, 114, 59, 0.7));
+}
+
+#updating-btn img,
+#deleting-btn img,
+#writting-btn img {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+}
+
+#deleting-btn img {
+    width: 16px;
+    height: 16px;
+}

@@ -1,4 +1,5 @@
 <?php
+// session_start();
 
 require_once('model/Post.php');
 require_once('model/PostsManager.php');
@@ -51,6 +52,10 @@ function addComment($postId, $pseudo, $content) {
 function managementSpace($pseudo, $password) {
     $userManager = new UserManager();
     $user = $userManager->getUser($pseudo, $password);
+    // $_SESSION['admin'] = $pseudo;
 
+    $postsManager = new PostsManager();
+    $posts = $postsManager->getPostsList();
+    
     require_once('view/display_management_space.php');
 }

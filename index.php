@@ -1,4 +1,5 @@
 <?php
+session_start();
 // INDEX.PHP = ROUTEUR
 
 require_once('controller.php');
@@ -25,6 +26,9 @@ if (isset($_GET['action'])) {
     }
 
     elseif ($_GET['action'] == 'connexion') {
+        // if (isset($_SESSION('admin'))) {
+
+        // }
         if (isset($_POST['pseudo']) && isset($_POST['mdp'])) {
             if ($_POST['pseudo'] == 'Jean' && $_POST['mdp'] == '45F!nb0H') {
                 managementSpace($_POST['pseudo'], $_POST['mdp']);
@@ -32,6 +36,12 @@ if (isset($_GET['action'])) {
                 header('Location: view/connexion.php');
             }
         }
+    }
+
+    elseif ($_GET['action'] == 'deconnexion') {
+        
+        // session_destroy();
+        listPosts();
     }
 }
 
