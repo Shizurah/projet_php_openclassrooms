@@ -48,7 +48,6 @@
 
                     <a href="#">Signaler</a>
                 </p>
-            <!-- </div> -->
 
             <?php
             }
