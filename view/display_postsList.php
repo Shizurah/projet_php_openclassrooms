@@ -30,7 +30,7 @@ require_once('header.php');
 
                     <br/><br/>
 
-                    <em>Publié le <?= $post->postDateFr() ?></em> - <a href="index.php?action=post&amp;postId=<?= $post->id() ?>">Voir les commentaires</a>
+                    <em>Publié le <?= $post->postDateFr() ?></em> - <a href="index.php?action=post&amp;postId=<?= $post->id() ?>">Commentaires</a>
                 </p>
             </div>
 
