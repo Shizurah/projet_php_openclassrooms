@@ -9,7 +9,7 @@ class UserManager {
     }
 
     public function getUser($pseudo, $password) {
-        $req = $this->_db->prepare('SELECT id, pseudo INTO users WHERE pseudo = :pseudo AND userPassword = :userPassword');
+        $req = $this->_db->prepare('SELECT id, pseudo FROM users WHERE pseudo = :pseudo AND userPassword = PASSWORD(:userPassword)');
 
         $req->execute(array(
             'pseudo' => $pseudo,
