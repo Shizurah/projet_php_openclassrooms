@@ -19,11 +19,8 @@
                 <em>Publié le <?= $post->postDateFr() ?></em>
             </div>
             <a href="index.php">Retour au blog</a>
-        
 
             <br/><br/><br/>
-
-            <!-- <h4>Ajouter un commentaire</h4> -->
 
             <h4 id="comments-title">Commentaires</h4>
             <button id="writing-comment-btn">Commenter</button>
@@ -35,14 +32,14 @@
                 <label for="comment">Commentaire</label><br/>
                 <textarea name="comment" id="comment" cols="50" rows="6" require></textarea><br/>
 
-                <input type="submit" value="Envoyer votre commentaire" id="sending-comment-btn">
+                <input type="submit" value="Envoyer" id="sending-comment-btn">
                 <br/><br/>
             </form>
 
             <?php
             foreach ($comments as $comment) {
             ?>
-            <!-- <div class="comments"> -->
+    
                 <p class="comments">
                     <strong><?= $comment->author() ?></strong>, le <?= $comment->commentDateFr() ?><br/>
                     <?= $comment->content() ?>
