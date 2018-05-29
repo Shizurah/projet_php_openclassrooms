@@ -13,19 +13,24 @@
     <!-- <p>
         Se connecter à l'espace d'administration
     </p> -->
-    <div id="background">
-        <form action="" method="post">
-            <label for="pseudo">Pseudo </label>
-            <label for="mdp" id="label-id">Mot de passe </label><br/>
+    <div id="img-background">
+        <img src="../public/images/connexion_form.png" alt="library">
 
-            <input type="text" name="pseudo" id="pseudo" size="30" maxlength="50">
-            <input type="password" name="mdp" id="mdp" size="30" maxlength="50">
-            <input type="submit" value="Connexion" id="connexion">
-        </form>
+        <div id="background">
+            <form action="" method="post">
+                <label for="pseudo">Pseudo </label>
+                <label for="mdp" id="label-id">Mot de passe </label><br/>
 
-        <p>
-            Seul l'administrateur du site est actuellement autorisé à se connecter
-        </p>
+                <input type="text" name="pseudo" id="pseudo" size="30" maxlength="50">
+                <input type="password" name="mdp" id="mdp" size="30" maxlength="50">
+                <input type="submit" value="Connexion" id="connexion">
+            </form>
+
+            <p>
+                Seul l'administrateur du site est actuellement autorisé à se connecter
+            </p>
+        </div>
+
     </div>
     
     
