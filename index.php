@@ -24,13 +24,15 @@ if (isset($_GET['action'])) {
         }
     }
 
-    // elseif ($_GET['action'] == 'connexion') {
-    //     if (isset($_POST['pseudo']) && isset($_POST['password'])) {
-    //         if ($_POST['pseudo'] == 'Jean' && $_POST['password'] == '45F!nb0H') {
-    //             managementSpace();
-    //         }
-    //     }
-    // }
+    elseif ($_GET['action'] == 'connexion') {
+        if (isset($_POST['pseudo']) && isset($_POST['mdp'])) {
+            if ($_POST['pseudo'] == 'Jean' && $_POST['mdp'] == '45F!nb0H') {
+                managementSpace($_POST['pseudo'], $_POST['mdp']);
+            } else {
+                header('Location: view/connexion.php');
+            }
+        }
+    }
 }
 
 else {

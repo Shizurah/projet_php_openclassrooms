@@ -48,9 +48,9 @@ function addComment($postId, $pseudo, $content) {
 }
 
 
-// function managementSpace() {
-//     $userManager = new UserManager();
-//     $user = $userManager->getUser($_POST['pseudo'], $_POST['password']);
+function managementSpace($pseudo, $password) {
+    $userManager = new UserManager();
+    $user = $userManager->getUser($pseudo, $password);
 
-//     require_once('view/display_management_space.php');
-// }
+    require_once('view/display_management_space.php');
+}

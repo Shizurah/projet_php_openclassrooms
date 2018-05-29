@@ -17,7 +17,7 @@
         <img src="../public/images/connexion_form.png" alt="library">
 
         <div id="background">
-            <form action="" method="post">
+            <form action="../index.php?action=connexion" method="post">
                 <label for="pseudo">Pseudo </label>
                 <label for="mdp" id="label-id">Mot de passe </label><br/>
 
