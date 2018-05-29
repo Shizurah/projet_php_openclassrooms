@@ -10,18 +10,28 @@ class CommentsManager {
         $this->_db = DbManager::dbConnect();
     }
 
-    public function add(Comment $comment) {
-        $req = $this->_db->prepare('INSERT INTO comments(postId, author, commentDate, content) VALUES (:postId, :author, NOW(), :content');
+    // public function add(Comment $comment) {
+    //     $req = $this->_db->prepare('INSERT INTO comments(postId, author, commentDate, content) VALUES (:postId, :author, NOW(), :content');
+
+    //     $req->execute(array(
+    //         'postId' => strip_tags($comment->postId()),
+    //         'author' => strip_tags($comment->author()),
+    //         'content' => strip_tags($comment->content())
+    //     ));
+    // }
+
+    public function add($postId, $author, $content) {
+        $req = $this->_db->prepare('INSERT INTO comments(postId, author, commentDate, content) VALUES (:postId, :author, NOW(), :content)');
 
         $req->execute(array(
-            'postId' => $comment->postId(),
-            'author' => $comment->author(),
-            'content' => $comment->content()
+            'postId' => $postId,
+            'author' => $author,
+            'content' => $content
         ));
     }
 
     public function getComments($postId) {
-        $req = $this->_db->prepare('SELECT id, author, DATE_FORMAT(commentDate, \'%d/%m/%Y\') AS commentDateFr, content FROM comments WHERE postId = ? ORDER BY commentDate');
+        $req = $this->_db->prepare('SELECT id, author, DATE_FORMAT(commentDate, \'%d/%m/%Y\') AS commentDateFr, content FROM comments WHERE postId = ? ORDER BY commentDate DESC');
         $req->execute(array($postId));
 
         $comments = [];
