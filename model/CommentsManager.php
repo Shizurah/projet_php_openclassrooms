@@ -11,7 +11,7 @@ class CommentsManager {
     }
 
     // public function add(Comment $comment) {
-    //     $req = $this->_db->prepare('INSERT INTO comments(postId, author, commentDate, content) VALUES (:postId, :author, NOW(), :content');
+    //     $req = $this->_db->prepare('INSERT INTO comments(postId, author, commentDate, content) VALUES (:postId, :author, NOW(), :content)');
 
     //     $req->execute(array(
     //         'postId' => strip_tags($comment->postId()),
@@ -43,6 +43,19 @@ class CommentsManager {
         return $comments;
     }
 
+    public function getReportedComments() {
+        $req = $this->_db->prepare('SELECT id, author, DATE_FORMAT(commentDate, \'%d/%m/%Y\') AS commentDateFr, content FROM comments WHERE reportings >= 5');
+        $req->execute();
+
+        $reportedComments = [];
+
+        while ($data = $req->fetch()) {
+            $reportedComments[] = new Comment($data);
+        }
+
+        return $reportedComments;
+    }
+
     public function update(Comment $comment) {
         $req = $this->_db->prepare('UPDATE comments SET author = :author, content = :content WHERE id = :id');
 
@@ -54,6 +67,7 @@ class CommentsManager {
     }
 
     public function delete(Comment $comment) {
-        $req = $this->_db->exec('DELETE FROM comments WHERE id =' .$comment->id());
+        $req = $this->_db->prepare('DELETE FROM comments WHERE id = ?');
+        $req->execute(array ($comment->id()) );
     }
 }
