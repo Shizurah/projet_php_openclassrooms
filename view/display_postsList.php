@@ -15,9 +15,12 @@
 <?php
 require_once('header.php');
 ?>
-
+    
     <section>
+        
         <div id="chapters-container">
+            <h2 id="book-title">Billet simple pour l'Alaska</h2>
+
             <?php
             foreach($posts as $post) {
             ?>
