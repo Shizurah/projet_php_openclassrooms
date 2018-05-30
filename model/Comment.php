@@ -7,6 +7,7 @@ class Comment {
     private $_author;
     private $_commentDateFr;
     private $_content;
+    private $_reportings;
 
     public function __construct(array $data) {
         $this->hydrate($data);
@@ -44,6 +45,10 @@ class Comment {
         return $this->_content;
     }
 
+    public function reportings() {
+        return $this->_reportings;
+    }
+
 
     //setters :
 
@@ -52,8 +57,9 @@ class Comment {
     }
 
     public function setPostId($postId) {
-        if (is_int($postId) && $postId > 0)
+        // if (is_int($postId) && $postId > 0) {
             $this->_postId = $postId;
+        // }       
     }
 
     public function setAuthor($author) {
@@ -70,6 +76,10 @@ class Comment {
         if (is_string($content)) {
             $this->_content = $content;
         }
+    }
+
+    public function setReportings($reportings) {
+        $this->_reportings = $reportings;
     }
 
 }
