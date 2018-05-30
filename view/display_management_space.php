@@ -37,7 +37,6 @@
 
             <tr>
                 <th>Chapitres</th>
-              
                 <th>Date de publication</th>
                 <th>Actions</th>
             </tr>
@@ -64,5 +63,34 @@
         </table>
         
         <h3>MODÉRER LES COMMENTAIRES</h3>
+
+        <table>
+
+            <tr>
+                <th>Auteur</th>
+                <th>Commentaire</th>
+                <th>Date de publication</th>
+                <th>Signalé</th>
+                <th>Actions</th>
+            </tr>
+            
+        <?php
+            foreach($reportedComments as $reportedComment) {
+        ?>
+                <tr>
+                    <td><?= $reportedComment->author() ?></td>
+                    <td><?= $reportedComment->content() ?></td>
+                    <td><?= $reportedComment->commentDateFr() ?></td> 
+                    <td><?= $reportedComment->reportings() ?> fois</td>
+                    <td>
+                        <a href="index.php?action=post&amp;postId=<?= $reportedComment->postId() ?>">Voir chapitre correspondant</a><br/>
+                        <a href="index.php?action=delete&amp;commentId=<?= $reportedComment->id() ?>">Supprimer</a>
+                    </td>
+                </tr>
+        <?php
+            }
+        ?>
+        </table>
+        <br/><br/>
     </body>
 </html>

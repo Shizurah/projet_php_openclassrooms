@@ -57,5 +57,8 @@ function managementSpace($pseudo, $password) {
     $postsManager = new PostsManager();
     $posts = $postsManager->getPostsList();
     
+    $commentsManager = new CommentsManager();
+    $reportedComments = $commentsManager->getReportedComments();
+    
     require_once('view/display_management_space.php');
 }
