@@ -44,7 +44,7 @@ class CommentsManager {
     }
 
     public function getReportedComments() {
-        $req = $this->_db->prepare('SELECT id, author, DATE_FORMAT(commentDate, \'%d/%m/%Y\') AS commentDateFr, content FROM comments WHERE reportings >= 5');
+        $req = $this->_db->prepare('SELECT id, author, DATE_FORMAT(commentDate, \'%d/%m/%Y\') AS commentDateFr, content, postId, reportings FROM comments WHERE reportings >= 5 ORDER BY reportings DESC');
         $req->execute();
 
         $reportedComments = [];
