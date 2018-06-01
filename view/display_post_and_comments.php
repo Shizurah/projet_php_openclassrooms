@@ -23,7 +23,7 @@
             <br/><br/><br/>
 
             <h4 id="comments-title">Commentaires</h4>
-            <button id="writing-comment-btn">Commenter</button>
+            <button id="writting-comment-btn">Commenter</button>
 
             <form action="index.php?action=addComment&amp;postId=<?= $post->id() ?>" method="post" id="comment-form">
                 <label for="pseudo">Pseudo</label><br/>
@@ -55,6 +55,6 @@
         </div>
         
 
-        <script src="view/comments.js"></script>
+        <script src="view/addComment.js"></script>
     </body>
 </html>
