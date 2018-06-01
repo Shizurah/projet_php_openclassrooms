@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 // INDEX.PHP = ROUTEUR
 
 require_once('controller.php');
@@ -31,17 +31,41 @@ if (isset($_GET['action'])) {
         // }
         if (isset($_POST['pseudo']) && isset($_POST['mdp'])) {
             if ($_POST['pseudo'] == 'Jean' && $_POST['mdp'] == '45F!nb0H') {
-                managementSpace($_POST['pseudo'], $_POST['mdp']);
+                if (!isset($_SESSION)) {
+                    session_start();
+                }
+                // session_start();
+                managementSpace();
+
+                // if ($_GET['action'] == 'delete') {
+                //     if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
+                //         deleteComment($_GET['commentId']);
+                //         managementSpace($_POST['pseudo'], $_POST['mdp']);
+                //     }
+                // } 
             } else {
                 header('Location: view/connexion.php');
             }
         }
+
+        elseif (isset($_SESSION)) {
+            managementSpace();
+        }
     }
 
+    elseif ($_GET['action'] == 'delete') {
+        if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
+            deleteComment($_GET['commentId']);
+            header('Location: index.php?action=connexion');
+            exit;
+        }
+    } 
+
     elseif ($_GET['action'] == 'deconnexion') {
-        
+        //session_unset();
         // session_destroy();
-        listPosts();
+        header('Location: index.php');
+        exit;
     }
 }
 

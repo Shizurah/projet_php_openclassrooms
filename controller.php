@@ -1,5 +1,7 @@
 <?php
-// session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 
 require_once('model/Post.php');
 require_once('model/PostsManager.php');
@@ -49,9 +51,9 @@ function addComment($postId, $pseudo, $content) {
 }
 
 
-function managementSpace($pseudo, $password) {
-    $userManager = new UserManager();
-    $user = $userManager->getUser($pseudo, $password);
+function managementSpace() {
+    // $userManager = new UserManager();
+    // $user = $userManager->getUser($pseudo, $password);
     // $_SESSION['admin'] = $pseudo;
 
     $postsManager = new PostsManager();
@@ -59,6 +61,11 @@ function managementSpace($pseudo, $password) {
     
     $commentsManager = new CommentsManager();
     $reportedComments = $commentsManager->getReportedComments();
-    
+
     require_once('view/display_management_space.php');
+}
+
+function deleteComment($commentId) {
+    $commentsManager = new CommentsManager;
+    $commentsManager->delete($commentId);
 }
