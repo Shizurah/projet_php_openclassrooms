@@ -1,4 +1,5 @@
 body {
+    position: relative;
     width: 68.5%;
     margin: auto;
     font-family: "Raleway", sans-serif;
@@ -16,21 +17,21 @@ h3 {
     text-decoration: underline;
 }
 
-#header-management-space {
+.header-management-space {
     display: flex;
     position: relative;
 }
 
-#header-management-space img {
+.header-management-space img {
     width: 100%;
 }
 
-#header-management-space h2,
-#header-management-space a {
+.header-management-space h2,
+.header-management-space a {
     position: absolute; 
 }
 
-#header-management-space h2 {
+.header-management-space h2 {
     color: white;
     margin: 0;
     left: 28%;
@@ -87,6 +88,11 @@ td, th {
 }
 
 #writting-btn {
+    display: block;
+    display: flex;
+    text-decoration: none;
+    width: 178px;
+    height: 22px;
     margin: auto;
     border: 1.8px solid rgb(54, 102, 51);
     background-image: linear-gradient(rgb(109, 204, 104), rgb(60, 114, 59));
@@ -128,4 +134,93 @@ td, th {
 #deleting-btn img {
     width: 16px;
     height: 16px;
+}
+
+
+/* TINYMCE */
+
+#tinyMce-page-title {
+    left: 528px;
+}
+
+#success-msg {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    padding: 12px 10px;
+    border-radius: 5px;
+    border: 1px solid #b5b8bc;
+    background-color: rgb(209, 231, 208);
+    color: rgb(54, 104, 54);
+    font-size: 1.1em;
+}
+
+#success-msg a {
+    /* text-decoration: none; */
+    display: inline-block;
+    padding: 5px;
+    color: rgb(54, 104, 54);
+    /* font-weight: bold; */
+    margin-left: 10px;
+    
+}
+
+span {
+    font-weight: bold;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+form {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+#mySpace {
+    display: block;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    border: 1px solid grey;
+    padding: 6px;
+    border-radius: 3px;
+    width: 115px;
+    background-color: rgb(193, 168, 173);
+    color: white;
+    font-size: 0.8em;
+    font-weight: bold;
+    
+    /* text-align: center; */
+}
+
+#back {
+    color: black;
+}
+
+#mySpace:hover {
+    opacity: 0.7;
+}
+
+#chapter-title {
+    border: 1px solid #b5b8bc;
+}
+
+#chapter-submit-btn {
+    position: absolute;
+    right:0;
+    padding: 8px 15px;
+    font-size: 0.9em;
+    color: white;
+    font-weight: bold;
+    border: 1px solid rgb(64, 126, 60);
+    background-color: rgb(81, 158, 77);
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+#chapter-submit-btn:hover {
+    background-color: rgb(51, 99, 49);
 }

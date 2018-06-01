@@ -17,11 +17,9 @@
     </head>
 
     <body>
-        <div id="header-management-space">
+        <div class="header-management-space">
             <img src="public/images/connexion_form" alt="library">
-            <!-- <p>Bonjour 
-                $user->pseudo(); 
-            !</p> -->
+        
             <h2>
                 BIENVENUE DANS VOTRE ESPACE D'ADMINISTRATION
             </h2>
@@ -30,7 +28,8 @@
         </div>
 
         <h3>AJOUTER UN CHAPITRE</h3>
-        <button id="writting-btn"><img src="public/images/pencil.png" alt="crayon"/>Rédiger un chapitre</button>
+        <a href="view/display_tinyMce.php" id="writting-btn"><img src="public/images/pencil.png" alt="crayon"/>Rédiger un chapitre</a>
+        <!-- <button id="writting-btn"><img src="public/images/pencil.png" alt="crayon"/>Rédiger un chapitre</button> -->
         <h3>GÉRER VOS CHAPITRES PUBLIÉS</h3>
 
         <table>
