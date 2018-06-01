@@ -66,8 +66,8 @@ class CommentsManager {
         ));
     }
 
-    public function delete(Comment $comment) {
+    public function delete($commentId) {
         $req = $this->_db->prepare('DELETE FROM comments WHERE id = ?');
-        $req->execute(array ($comment->id()) );
+        $req->execute(array ($commentId));
     }
 }
