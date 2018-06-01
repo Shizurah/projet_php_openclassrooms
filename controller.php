@@ -65,6 +65,20 @@ function managementSpace() {
     require_once('view/display_management_space.php');
 }
 
+function addPost($title, $content) {
+    $postsManager = new PostsManager();
+    $postsManager->add($title, $content);
+
+    $post = $postsManager->getLastPost();
+    header('Location: view/display_tinyMce.php?lastPost=' .$post->id());
+    exit;
+    // require_once('view/display_tinyMce.php');
+
+    // $post = new Post($title, $content)
+
+    // $postsManager->add($post);
+}
+
 function deleteComment($commentId) {
     $commentsManager = new CommentsManager;
     $commentsManager->delete($commentId);

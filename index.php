@@ -53,7 +53,15 @@ if (isset($_GET['action'])) {
         }
     }
 
-    elseif ($_GET['action'] == 'delete') {
+    elseif ($_GET['action'] == 'addPost') {
+        if (isset($_POST['chapter-title']) && isset($_POST['chapter-content'])) {
+            addPost($_POST['chapter-title'], $_POST['chapter-content']);
+
+            
+        }
+    }
+
+    elseif ($_GET['action'] == 'deleteComment') {
         if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
             deleteComment($_GET['commentId']);
             header('Location: index.php?action=connexion');
