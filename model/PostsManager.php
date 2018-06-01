@@ -11,14 +11,33 @@ class PostsManager {
     }
     
     
-    public function add(Post $post) { 
+    public function add($title, $content) { 
 
         $req = $this->_db->prepare('INSERT INTO posts(title, postDate, content) VALUES(:post_title, NOW(), :post_content)'); 
 
         $req->execute(array(
-            'post_title' => $post->title(),
-            'post_content' => $post->content()
+            'post_title' => $title,
+            'post_content' => $content
         ));
+    }
+
+    public function get($postId) {
+        $postId = (int) $postId;
+
+        $req = $this->_db->query('SELECT id, title, DATE_FORMAT(postDate, \'%d/%m/%Y\') AS postDateFr, content FROM posts WHERE id = '.$postId);
+
+        $data = $req->fetch();
+
+        return new Post($data);
+    }
+
+    public function getLastPost() {
+        $req = $this->_db->prepare('SELECT id FROM posts ORDER BY id DESC LIMIT 1');
+        $req->execute();
+
+        $data = $req->fetch();
+
+        return new Post($data);
     }
 
     public function getPostsList() {
@@ -31,16 +50,6 @@ class PostsManager {
         }
 
         return $posts;
-    }
-
-    public function get($postId) {
-        $postId = (int) $postId;
-
-        $req = $this->_db->query('SELECT id, title, DATE_FORMAT(postDate, \'%d/%m/%Y\') AS postDateFr, content FROM posts WHERE id = '.$postId);
-
-        $data = $req->fetch();
-
-        return new Post($data);
     }
 
     public function update(Post $post) {       
