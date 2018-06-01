@@ -22,39 +22,47 @@
             <a href="../index.php?action=deconnexion" id="deconnexion-btn">Déconnexion</a>
         </div>
 
-        <br/>
+        <div id="redirections-btns">
+            <a href="../index.php?action=postsList" class="redirections-btns">Blog</a>
+            <a href="../index.php?action=connexion" class="redirections-btns">Tableau de bord</a>    
+        </div>
+        
+        <?php
+            if (isset($_GET['lastPost'])) {
+        ?>
+                <div id="success-msg">
+                    <p>
+                        Votre <span> chapitre </span> a bien été publié ! <br/>  
+                    </p>
 
-        <a href="../index.php?action=connexion" id="mySpace">Tableau de bord</a>
-        <br/>
-        <a href="" id="back">Retour page d'accueil</a>
-
-        <br/>
-
-        <!-- <div > -->
-            <p id="success-msg">
-                Votre <span> chapitre </span> a bien été publié ! <br/>
-                <a href="">>> Voir le chapitre</a>  
-            </p>
-        <!-- </div> -->
-
-        <form action="" action="post">
+                    <a href="../index.php?action=post&amp;postId=<?= $_GET['lastPost'] ?>">Voir le chapitre</a>
+                </div>
+        <?php
+            }
+        ?>
+        
+        <form action="../index.php?action=addPost" method="post">
             <label for="chapter-title">Titre</label><br/>
-            <input type="text" name="chapter-title" id="chapter-title" required><br/><br/>
+            <input type="text" name="chapter-title" id="chapter-title" required /><br/><br/>
 
-            <textarea name="chapter-textarea" id="chapter-textarea" rows="30" required></textarea>
+            <textarea name="chapter-content" id="chapter-textarea" rows="30" required></textarea>
 
             <br/>
             
-            <input type="submit" id="chapter-submit-btn" value="Publier">
+            <input type="submit" id="chapter-submit-btn" value="Publier" />
         </form>
 
-        <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
 
+        
+        <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+        
         <script>
             tinymce.init({
                 selector: '#chapter-textarea'
             });
         </script>
+
+        <script src="actions.js"></script> 
 
     </body>
 
