@@ -32,6 +32,14 @@ function post($postId) {
     require_once('view/display_post_and_comments.php');
 }
 
+function postForUpdating($postId) {
+    $postsManager = new PostsManager();
+    $post = $postsManager->get($postId);
+    
+    require_once('view/display_tinyMce.php');
+  
+}
+
 function addComment($postId, $pseudo, $content) {
     $commentsManager = new CommentsManager();
 
@@ -77,6 +85,10 @@ function addPost($title, $content) {
     // $post = new Post($title, $content)
 
     // $postsManager->add($post);
+}
+
+function updatePost($postId) {
+
 }
 
 function deletePost($postId) {

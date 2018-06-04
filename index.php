@@ -51,6 +51,12 @@ if (isset($_GET['action'])) {
         }
     }
 
+    elseif ($_GET['action'] == 'postUpdating') {
+        if (isset($_GET['postId']) && $_GET['postId'] > 0) {
+            postForUpdating($_GET['postId']);
+        }
+    }
+
     elseif ($_GET['action'] == 'postDeleting') {
         if (isset($_GET['postId']) && $_GET['postId'] > 0) {
             deletePost($_GET['postId']);
