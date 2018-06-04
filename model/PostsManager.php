@@ -52,19 +52,22 @@ class PostsManager {
         return $posts;
     }
 
-    public function update(Post $post) {       
+    public function update($postId, $postTitle, $postContent) {       
 
         $req = $this->_db->prepare('UPDATE posts SET title = :post_title, content = :post_content WHERE id = :post_id');
 
         $req->execute(array(
-            'post_title' => $post->title(),
-            'post_content' => $post->content(),
-            'post_id' => $post->id()
+            'post_id' => $postId,
+            'post_title' => $postTitle,
+            'post_content' => $postContent            
         ));
     }
 
-    public function delete(Post $post) {
-        $req = $this->_db->exec('DELETE FROM posts WHERE id =' . $post->id());
+    public function delete($postId) {
+        $req = $this->_db->prepare('DELETE FROM posts WHERE id = ?');
+        $req->execute(array($postId));
+
+        // $req = $this->_db->exec('DELETE FROM posts WHERE id =' . $post->id());
     }
     
 }
