@@ -27,10 +27,10 @@
 
             <form action="index.php?action=addComment&amp;postId=<?= $post->id() ?>" method="post" id="comment-form">
                 <label for="pseudo">Pseudo</label><br/>
-                <input type="text" name="pseudoComment" id="pseudo" require> <br/>
+                <input type="text" name="pseudoComment" id="pseudo" required> <br/>
 
                 <label for="comment">Commentaire</label><br/>
-                <textarea name="comment" id="comment" cols="50" rows="6" require></textarea><br/>
+                <textarea name="comment" id="comment" cols="50" rows="6" required></textarea><br/>
 
                 <input type="submit" value="Envoyer" id="sending-comment-btn">
                 <br/><br/>
