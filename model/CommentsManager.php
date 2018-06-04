@@ -45,7 +45,7 @@ class CommentsManager {
 
     public function reportComment($commentId) {
         $req = $this->_db->prepare('UPDATE comments set reportings = reportings + 1 WHERE id = ?');
-        $req->(array($commentId));
+        $req->execute(array($commentId));
     }
 
     public function getReportedComments() {
