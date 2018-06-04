@@ -27,10 +27,11 @@
             <a href="../index.php?action=connexion" class="redirections-btns">Tableau de bord</a>    
         </div>
         
+        <div id="success-msg">
         <?php
             if (isset($_GET['lastPost'])) {
         ?>
-                <div id="success-msg">
+                
                     <p>
                         Votre <span> chapitre </span> a bien été publié ! <br/>  
                     </p>
@@ -58,11 +59,12 @@
         
         <script>
             tinymce.init({
-                selector: '#chapter-textarea'
+                selector: '#chapter-textarea',
+                width: '1314',
             });
         </script>
 
-        <script src="actions.js"></script> 
+        <script src="addPost.js"></script> 
 
     </body>
 
