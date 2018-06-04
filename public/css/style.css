@@ -129,8 +129,8 @@ strong {
 }
 
 .posts {
-    background-color: #e5e3da;
-    padding: 30px 40px 20px 40px;
+    background-color: #f1f0ec;
+    padding: 40px 50px 40px 50px;
     margin-bottom: 20px;
     text-align: justify;
     border-radius: 5px;
@@ -192,11 +192,15 @@ h3 {
     /* top: -10%; */
     
 }
+
+
+
+
 /* AFFICHAGE D UN POST ET DE SES COMMENTAIRES  */
 
-/* #chapter {
-    background-color:
-} */
+#post-title {
+    background-color: #f1f0ec;
+}
 
 #main-wrapper-for-one-post {
     margin-top: 50px;
@@ -211,13 +215,62 @@ h3 {
     font-size: 1.2em;
 }
 
-#writing-comment-btn,
+input,
+textarea {
+    margin-bottom: 12px;
+}
+
+form, 
+#writting-comment-btn {
+    margin-top: 20px;
+}
+
+#writting-comment-btn,
 #sending-comment-btn {
     cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+#writting-comment-btn {
+    /* margin-bottom: 20px; */
+    padding: 5px 8px;
+    border-radius: 5px; 
+    border: 1.8px solid rgb(38, 120, 145);
+    background-image: linear-gradient(rgb(95, 204, 231), rgb(44, 139, 167));
+}
+
+#writting-comment-btn:hover {
+    opacity: 0.7;
+}
+
+#sending-comment-btn {
+    margin-bottom: 0px;
+    padding: 5px 10px;
+    border: 1px solid rgb(64, 126, 60);
+    background-color: rgb(81, 158, 77);
+    border-radius: 3px;
+}
+
+#sending-comment-btn:hover {
+    background-color: rgb(51, 99, 49);
 }
 
 .comments {
+    position: relative;
     border: 1px solid #b5b8bc;
     padding: 20px;
     width: 50%;
+}
+
+.links-beside-date {
+    color: rgb(44, 139, 167);
+    text-decoration: none;
+    font-size: 1em;
+    font-style: italic;
+}
+
+.links-beside-date:hover {
+    text-decoration: underline;
+    font-weight: bold;
 }

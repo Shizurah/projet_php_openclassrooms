@@ -34,7 +34,7 @@ require_once('header.php');
 
                     <br/><br/>
 
-                    <em>Publié le <?= $post->postDateFr() ?></em> - <a href="index.php?action=post&amp;postId=<?= $post->id() ?>">Commentaires</a>
+                    <em>Publié le <?= $post->postDateFr() ?></em> - <a href="index.php?action=post&amp;postId=<?= $post->id() ?>" class="links-beside-date">Commentaires</a>
                 </p>
             </div>
 

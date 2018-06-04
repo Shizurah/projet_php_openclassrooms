@@ -42,14 +42,8 @@
                         Votre <span> chapitre </span> a été supprimé avec succès !   
                     </p>
             <?php
-                } elseif ($_GET['action'] == "postUpdating") {
+                } 
             ?>
-                    <p>
-                        Votre <span>chapitre</span> a été modifié avec succès !
-                    </p>
-            <?php
-                }
-            ?>            
         </div>
 
         <table>

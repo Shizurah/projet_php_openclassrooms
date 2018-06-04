@@ -14,39 +14,43 @@
         <div id="main-wrapper-for-one-post">
             
             <div class="posts">
-                <h3><?= $post->title() ?></h3>
+                <h3 id="post-title"><?= $post->title() ?></h3>
                 <p><?= $post->content() ?></p>
-                <em>Publié le <?= $post->postDateFr() ?></em>
+                <em>Publié le <?= $post->postDateFr() ?></em> - <a href="index.php" class="links-beside-date">Retour au blog</a>
+                <br/>
+                <button id="writting-comment-btn">Commenter</button>
+
+                <form action="index.php?action=addComment&amp;postId=<?= $post->id() ?>" method="post" id="comment-form">
+                    <label for="pseudo">Pseudo</label><br/>
+                    <input type="text" name="pseudoComment" id="pseudo" required> <br/>
+
+                    <label for="comment">Commentaire</label><br/>
+                    <textarea name="comment" id="comment" cols="50" rows="6" required></textarea><br/>
+
+                    <input type="submit" value="Envoyer" id="sending-comment-btn">
+                    <br/><br/>
+                </form>
+
             </div>
-            <a href="index.php">Retour au blog</a>
+
+            
 
             <br/><br/><br/>
 
             <h4 id="comments-title">Commentaires</h4>
-            <button id="writting-comment-btn">Commenter</button>
-
-            <form action="index.php?action=addComment&amp;postId=<?= $post->id() ?>" method="post" id="comment-form">
-                <label for="pseudo">Pseudo</label><br/>
-                <input type="text" name="pseudoComment" id="pseudo" required> <br/>
-
-                <label for="comment">Commentaire</label><br/>
-                <textarea name="comment" id="comment" cols="50" rows="6" required></textarea><br/>
-
-                <input type="submit" value="Envoyer" id="sending-comment-btn">
-                <br/><br/>
-            </form>
+            
 
             <?php
             foreach ($comments as $comment) {
             ?>
     
                 <p class="comments">
-                    <strong><?= $comment->author() ?></strong>, le <?= $comment->commentDateFr() ?><br/>
+                    <strong><?= $comment->author() ?></strong>, le <?= $comment->commentDateFr() ?> - <a href="index.php?action=reportComment&amp;commentId=<?= $comment->id() ?>" class="links-beside-date">Signaler</a> <br/> 
                     <?= $comment->content() ?>
 
                     <br/><br/>
 
-                    <a href="#">Signaler</a>
+                    
                 </p>
 
             <?php
