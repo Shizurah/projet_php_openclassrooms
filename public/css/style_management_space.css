@@ -73,12 +73,15 @@ td, th {
 
 .actions-btns {
     display: flex;
+    font-size: 0.9em;
 }
 
 #updating-btn,
 #deleting-btn,
 #writting-btn {
+    display: block;
     display: flex;
+    text-decoration: none;
     padding: 5px 8px;
     border-radius: 5px;
     cursor: pointer;
@@ -88,9 +91,6 @@ td, th {
 }
 
 #writting-btn {
-    display: block;
-    display: flex;
-    text-decoration: none;
     width: 178px;
     height: 22px;
     margin: auto;
@@ -112,7 +112,6 @@ td, th {
 
 #deleting-btn:hover {
     background-image: linear-gradient(rgba(240, 114, 112, 0.7), rgba(208, 36, 32, 0.7));
-    /* background-color: rgba(142, 143, 145, 0.8); */
 }
 
 #updating-btn:hover {
@@ -121,6 +120,13 @@ td, th {
 
 #writting-btn:hover {
     background-image: linear-gradient(rgba(109, 204, 104, 0.7), rgba(60, 114, 59, 0.7));
+}
+
+.actions-btns a {
+    display: block;
+    display: flex;
+    width: 100%;
+    height: 100%;
 }
 
 #updating-btn img,
@@ -137,7 +143,8 @@ td, th {
 }
 
 
-/* TINYMCE */
+
+/* =========== TINYMCE ============  */
 
 #tinyMce-page-title {
     left: 528px;
@@ -151,10 +158,9 @@ td, th {
 
 #success-msg p {
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
-    width: 20%;
+    /* width: 20%; */
     padding: 12px 10px;
     border-radius: 5px;
     border: 1px solid #b5b8bc;
