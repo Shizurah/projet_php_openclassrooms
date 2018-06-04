@@ -28,9 +28,29 @@
         </div>
 
         <h3>AJOUTER UN CHAPITRE</h3>
+
         <a href="view/display_tinyMce.php" id="writting-btn"><img src="public/images/pencil.png" alt="crayon"/>Rédiger un chapitre</a>
-        <!-- <button id="writting-btn"><img src="public/images/pencil.png" alt="crayon"/>Rédiger un chapitre</button> -->
+        
+        
         <h3>GÉRER VOS CHAPITRES PUBLIÉS</h3>
+
+        <div id="success-msg">
+            <?php
+                if ($_GET['action'] == "postDeleting") {
+            ?>
+                    <p>
+                        Votre <span> chapitre </span> a été supprimé avec succès !   
+                    </p>
+            <?php
+                } elseif ($_GET['action'] == "postUpdating") {
+            ?>
+                    <p>
+                        Votre <span>chapitre</span> a été modifié avec succès !
+                    </p>
+            <?php
+                }
+            ?>            
+        </div>
 
         <table>
 
@@ -50,8 +70,8 @@
 
                     <td>
                         <div class="actions-btns">
-                            <button id="updating-btn"><img src="public/images/gomme.png" alt="gomme"/>Modifier</button> 
-                            <button id="deleting-btn"><img src="public/images/poubelle.png" alt="poubelle"/>Supprimer</button>
+                            <a href="index.php?action=postUpdating&amp;postId=<?= $post->id() ?>" id="updating-btn"> <img src="public/images/gomme.png" alt="gomme"/> Modifier </a>  
+                            <a href="index.php?action=postDeleting&amp;postId=<?= $post->id() ?>" id="deleting-btn"> <img src="public/images/poubelle.png" alt="poubelle"/> Supprimer </a> 
                         </div>
                     </td>
                     
@@ -83,7 +103,7 @@
                     <td><?= $reportedComment->reportings() ?> fois</td>
                     <td>
                         <a href="index.php?action=post&amp;postId=<?= $reportedComment->postId() ?>">Voir chapitre correspondant</a><br/>
-                        <a href="index.php?action=delete&amp;commentId=<?= $reportedComment->id() ?>">Supprimer</a>
+                        <a href="index.php?action=deleteComment&amp;commentId=<?= $reportedComment->id() ?>">Supprimer</a>
                     </td>
                 </tr>
         <?php
@@ -91,5 +111,7 @@
         ?>
         </table>
         <br/><br/>
+
+        <script src="view/posts_and_comments_management.js"></script>
     </body>
 </html>

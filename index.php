@@ -26,23 +26,15 @@ if (isset($_GET['action'])) {
     }
 
     elseif ($_GET['action'] == 'connexion') {
-        // if (isset($_SESSION('admin'))) {
-
-        // }
+    
         if (isset($_POST['pseudo']) && isset($_POST['mdp'])) {
             if ($_POST['pseudo'] == 'Jean' && $_POST['mdp'] == '45F!nb0H') {
                 if (!isset($_SESSION)) {
                     session_start();
                 }
-                // session_start();
+            
                 managementSpace();
 
-                // if ($_GET['action'] == 'delete') {
-                //     if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
-                //         deleteComment($_GET['commentId']);
-                //         managementSpace($_POST['pseudo'], $_POST['mdp']);
-                //     }
-                // } 
             } else {
                 header('Location: view/connexion.php');
             }
@@ -55,17 +47,19 @@ if (isset($_GET['action'])) {
 
     elseif ($_GET['action'] == 'addPost') {
         if (isset($_POST['chapter-title']) && isset($_POST['chapter-content'])) {
-            addPost($_POST['chapter-title'], $_POST['chapter-content']);
+            addPost($_POST['chapter-title'], $_POST['chapter-content']);  
+        }
+    }
 
-            
+    elseif ($_GET['action'] == 'postDeleting') {
+        if (isset($_GET['postId']) && $_GET['postId'] > 0) {
+            deletePost($_GET['postId']);
         }
     }
 
     elseif ($_GET['action'] == 'deleteComment') {
         if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
             deleteComment($_GET['commentId']);
-            header('Location: index.php?action=connexion');
-            exit;
         }
     } 
 

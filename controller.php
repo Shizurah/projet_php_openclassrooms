@@ -79,7 +79,17 @@ function addPost($title, $content) {
     // $postsManager->add($post);
 }
 
+function deletePost($postId) {
+    $postsManager = new PostsManager();
+    $postsManager->delete($postId);
+
+    managementSpace();
+}
+
 function deleteComment($commentId) {
     $commentsManager = new CommentsManager;
     $commentsManager->delete($commentId);
+
+    header('Location: index.php?action=connexion');
+    exit;
 }
