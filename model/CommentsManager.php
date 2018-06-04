@@ -43,6 +43,11 @@ class CommentsManager {
         return $comments;
     }
 
+    public function reportComment($commentId) {
+        $req = $this->_db->prepare('UPDATE comments set reportings = reportings + 1 WHERE id = ?');
+        $req->(array($commentId));
+    }
+
     public function getReportedComments() {
         $req = $this->_db->prepare('SELECT id, author, DATE_FORMAT(commentDate, \'%d/%m/%Y\') AS commentDateFr, content, postId, reportings FROM comments WHERE reportings >= 5 ORDER BY reportings DESC');
         $req->execute();
@@ -56,15 +61,15 @@ class CommentsManager {
         return $reportedComments;
     }
 
-    public function update(Comment $comment) {
-        $req = $this->_db->prepare('UPDATE comments SET author = :author, content = :content WHERE id = :id');
+    // public function update(Comment $comment) {
+    //     $req = $this->_db->prepare('UPDATE comments SET author = :author, content = :content WHERE id = :id');
 
-        $req->execute(array(
-            'id' => $comment->id(),
-            'author' => $comment->author(),
-            'content' => $comment->content()
-        ));
-    }
+    //     $req->execute(array(
+    //         'id' => $comment->id(),
+    //         'author' => $comment->author(),
+    //         'content' => $comment->content()
+    //     ));
+    // }
 
     public function delete($commentId) {
         $req = $this->_db->prepare('DELETE FROM comments WHERE id = ?');
