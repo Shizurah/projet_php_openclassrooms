@@ -25,8 +25,8 @@ class CommentsManager {
 
         $req->execute(array(
             'postId' => $postId,
-            'author' => $author,
-            'content' => $content
+            'author' => strip_tags($author),
+            'content' => nl2br(strip_tags($content))
         ));
     }
 
