@@ -96,8 +96,8 @@
                     <td><?= $reportedComment->commentDateFr() ?></td> 
                     <td><?= $reportedComment->reportings() ?> fois</td>
                     <td>
-                        <a href="index.php?action=post&amp;postId=<?= $reportedComment->postId() ?>">Voir chapitre correspondant</a><br/>
-                        <a href="index.php?action=deleteComment&amp;commentId=<?= $reportedComment->id() ?>">Supprimer</a>
+                        <a href="index.php?action=post&amp;postId=<?= $reportedComment->postId() ?>" id="chapter-reference-btn">Voir chapitre correspondant</a><br/>
+                        <a href="index.php?action=deleteComment&amp;commentId=<?= $reportedComment->id() ?>" id="deleting-comment-link">Supprimer</a>
                     </td>
                 </tr>
         <?php

@@ -45,12 +45,10 @@
             ?>
     
                 <p class="comments">
-                    <strong><?= $comment->author() ?></strong>, le <?= $comment->commentDateFr() ?> - <a href="index.php?action=reportComment&amp;commentId=<?= $comment->id() ?>" class="links-beside-date">Signaler</a> <br/> 
+                    <strong><?= $comment->author() ?></strong>, le <?= $comment->commentDateFr() ?> - <a href="index.php?action=reportComment&amp;commentId=<?= $comment->id() ?>&amp;postId=<?= $post->id() ?>" class="links-beside-date reporting-comment-links">Signaler</a> <br/> 
                     <?= $comment->content() ?>
 
-                    <br/><br/>
-
-                    
+                    <br/>
                 </p>
 
             <?php
@@ -59,6 +57,6 @@
         </div>
         
 
-        <script src="view/addComment.js"></script>
+        <script src="view/add_and_report_comment.js"></script>
     </body>
 </html>
