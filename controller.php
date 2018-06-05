@@ -42,19 +42,6 @@ function postForUpdating($postId) {
 
 function addComment($postId, $pseudo, $content) {
     $commentsManager = new CommentsManager();
-
-    // $data = array(
-    //     'postId' => $postId,
-    //     'author' => $pseudo,
-    //     'content' => $content
-    // );
-
-    // $comment = new Comment(array(
-    //     'postId' => $postId,
-    //     'author' => $pseudo,
-    //     'content' => $content
-    // ));
-
     $commentsManager->add($postId, $pseudo, $content);
 }
 
@@ -96,6 +83,13 @@ function deletePost($postId) {
     $postsManager->delete($postId);
 
     managementSpace();
+}
+
+function reportComment($commentId, $postId) {
+    $commentsManager = new CommentsManager();
+    $commentsManager->reportComment($commentId);
+
+    post($postId);
 }
 
 function deleteComment($commentId) {

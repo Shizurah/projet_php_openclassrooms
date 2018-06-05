@@ -63,6 +63,12 @@ if (isset($_GET['action'])) {
         }
     }
 
+    elseif($_GET['action'] == 'reportComment') {
+        if (isset($_GET['commentId']) && isset($_GET['postId'])) {
+            reportComment($_GET['commentId'], $_GET['postId']);
+        }
+    }
+
     elseif ($_GET['action'] == 'deleteComment') {
         if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
             deleteComment($_GET['commentId']);
