@@ -82,6 +82,9 @@ function deletePost($postId) {
     $postsManager = new PostsManager();
     $postsManager->delete($postId);
 
+    $commentsManager = new CommentsManager();
+    $commentsManager->deleteAllCommentsForOnePost($postId);
+
     managementSpace();
 }
 
