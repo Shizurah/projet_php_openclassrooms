@@ -75,4 +75,9 @@ class CommentsManager {
         $req = $this->_db->prepare('DELETE FROM comments WHERE id = ?');
         $req->execute(array ($commentId));
     }
+
+    public function deleteAllCommentsForOnePost($postId) {
+        $req = $this->_db->prepare('DELETE FROM comments WHERE postId = ?');
+        $req->execute(array($postId));
+    }
 }
