@@ -29,7 +29,7 @@
 
         <h3>AJOUTER UN CHAPITRE</h3>
 
-        <a href="view/display_tinyMce.php" id="writting-btn"><img src="public/images/pencil.png" alt="crayon"/>Rédiger un chapitre</a>
+        <a href="index.php?action=postWritting" id="writting-btn"><img src="public/images/pencil.png" alt="crayon"/>Rédiger un chapitre</a>
         
         
         <h3>GÉRER VOS CHAPITRES PUBLIÉS</h3>
