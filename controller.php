@@ -21,7 +21,6 @@ function listPosts() {
     require_once('view/display_postsList.php');
 }
 
-
 function post($postId) {
     $postsManager = new PostsManager();
     $post = $postsManager->get($postId);
@@ -32,12 +31,36 @@ function post($postId) {
     require_once('view/display_post_and_comments.php');
 }
 
+function postForWritting() {
+    require_once('view/display_tinyMce.php');
+}
+
+function addPost($title, $content) {
+    $postsManager = new PostsManager();
+    $postsManager->add($title, $content);
+
+    $post = $postsManager->getLastPost();
+    require_once('view/display_tinyMce.php');
+    // require_once('view/display_tinyMce.php');
+
+    // $post = new Post($title, $content)
+
+    // $postsManager->add($post);
+}
+
 function postForUpdating($postId) {
     $postsManager = new PostsManager();
     $post = $postsManager->get($postId);
     
     require_once('view/display_tinyMce.php');
   
+}
+
+function updatePost($postId, $postTitle, $postContent) {
+    $postsManager = new PostsManager();
+    $postsManager->update($postId, $postTitle, $postContent);
+
+    require_once('view/display_tinyMce.php');
 }
 
 function addComment($postId, $pseudo, $content) {
@@ -47,10 +70,6 @@ function addComment($postId, $pseudo, $content) {
 
 
 function managementSpace() {
-    // $userManager = new UserManager();
-    // $user = $userManager->getUser($pseudo, $password);
-    // $_SESSION['admin'] = $pseudo;
-
     $postsManager = new PostsManager();
     $posts = $postsManager->getPostsList();
     
@@ -58,24 +77,6 @@ function managementSpace() {
     $reportedComments = $commentsManager->getReportedComments();
 
     require_once('view/display_management_space.php');
-}
-
-function addPost($title, $content) {
-    $postsManager = new PostsManager();
-    $postsManager->add($title, $content);
-
-    $post = $postsManager->getLastPost();
-    header('Location: view/display_tinyMce.php?lastPost=' .$post->id());
-    exit;
-    // require_once('view/display_tinyMce.php');
-
-    // $post = new Post($title, $content)
-
-    // $postsManager->add($post);
-}
-
-function updatePost($postId) {
-
 }
 
 function deletePost($postId) {

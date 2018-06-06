@@ -45,7 +45,11 @@ if (isset($_GET['action'])) {
         }
     }
 
-    elseif ($_GET['action'] == 'addPost') {
+    elseif ($_GET['action'] == 'postWritting') {
+        postForWritting();
+    }
+
+    elseif ($_GET['action'] == 'addedPost') {
         if (isset($_POST['chapter-title']) && isset($_POST['chapter-content'])) {
             addPost($_POST['chapter-title'], $_POST['chapter-content']);  
         }
@@ -54,6 +58,12 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'postUpdating') {
         if (isset($_GET['postId']) && $_GET['postId'] > 0) {
             postForUpdating($_GET['postId']);
+        }
+    }
+
+    elseif ($_GET['action'] == 'updatedPost') {
+        if(isset($_GET['postId']) && $_GET['postId'] > 0 && isset($_POST['chapter-title']) && isset($_POST['chapter-content'])) {
+            updatePost($_GET['postId'], $_POST['chapter-title'], $_POST['chapter-content']);
         }
     }
 
