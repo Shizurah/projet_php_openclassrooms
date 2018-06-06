@@ -12,8 +12,8 @@ class UserManager {
         $req = $this->_db->prepare('SELECT id, pseudo FROM users WHERE pseudo = :pseudo AND userPassword = PASSWORD(:userPassword)');
 
         $req->execute(array(
-            'pseudo' => $pseudo,
-            'userPassword' => $password
+            'pseudo' => strip_tags($pseudo),
+            'userPassword' => strip_tags($password)
         ));
 
         $data = $req->fetch();
