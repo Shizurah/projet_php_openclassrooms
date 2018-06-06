@@ -24,8 +24,9 @@ class PostsManager {
     public function get($postId) {
         $postId = (int) $postId;
 
-        $req = $this->_db->query('SELECT id, title, DATE_FORMAT(postDate, \'%d/%m/%Y\') AS postDateFr, content FROM posts WHERE id = '.$postId);
-
+        $req = $this->_db->prepare('SELECT id, title, DATE_FORMAT(postDate, \'%d/%m/%Y\') AS postDateFr, content FROM posts WHERE id = ?');
+        $req->execute(array($postId));
+        
         $data = $req->fetch();
 
         return new Post($data);
