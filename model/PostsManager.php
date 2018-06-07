@@ -41,6 +41,16 @@ class PostsManager {
         return new Post($data);
     }
 
+    public function countPosts() {
+        $req = $this->_db->query('SELECT COUNT(*) AS nbPosts FROM posts');
+
+        $data = $req->fetch();
+
+        $nbPosts = $data['nbPosts'];
+
+        return $nbPosts;
+    }
+
     public function getPostsList() {
         $req = $this->_db->query('SELECT id, title, DATE_FORMAT(postDate, \'%d/%m/%Y\') AS postDateFr, content FROM posts ORDER BY postDateFr');
 
