@@ -13,19 +13,41 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">  
         <link rel="stylesheet" href="public/css/style_management_space.css"/>
+        <link rel="stylesheet" href="public/css/style_header.css"/>
+        <!-- <link rel="stylesheet" href="public/css/style.css"/> -->
         <title>Document</title>
     </head>
 
     <body>
-        <div class="header-management-space">
-            <img src="public/images/connexion_form" alt="library">
-        
-            <h2>
-                BIENVENUE DANS VOTRE ESPACE D'ADMINISTRATION
-            </h2>
+        <header>
+            <nav>
+                <a href="index.php">Blog</a>
+                <a href="index.php?action=postsList&amp;page=1">Billet simple pour l'Alaska</a>
 
-            <a href="index.php?action=deconnexion" id="deconnexion-btn">Déconnexion</a>
-        </div>
+                <?php
+                    if(!isset($_SESSION)) {
+                ?>
+                        <a href="view/connexion.php" id="connexion-btn">Connexion</a>
+                        
+                        
+                <?php
+                    } else {
+                ?>
+                        <a href="index.php?action=connexion">Mon espace</a>
+                        <a href="index.php?action=deconnexion" id="connexion-btn">Déconnexion</a>
+                <?php
+                    }
+                ?>
+            </nav>
+
+            <div class="header-management-space">
+                <img src="public/images/connexion_form" alt="library">
+                <h2>BIENVENUE DANS VOTRE ESPACE D'ADMINISTRATION</h2>
+            </div>      
+        </header>
+        
+
+
 
         <h3>AJOUTER UN CHAPITRE</h3>
 
