@@ -8,7 +8,9 @@ require_once('controller.php');
 if (isset($_GET['action'])) {
 
     if ($_GET['action'] == 'postsList') {
-        listPosts();
+        if (isset($_GET['page'])) {
+            listPosts($_GET['page']);
+        }   
     }
 
     elseif ($_GET['action'] == 'post') {

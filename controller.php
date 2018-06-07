@@ -18,9 +18,15 @@ function mainPage() {
     require_once('view/display_main_blog_page.php');
 }
 
-function listPosts() {  
+function listPosts($page) {  
     $postsManager = new PostsManager();
-    $posts = $postsManager->getPostsList();
+    $nbPosts = $postsManager->countPosts();
+
+    $nbPostsToDisplayOnAPage = 5;
+    $nbPages = ceil($nbPosts / $nbPostsToDisplayOnAPage);
+
+    $firstPostToDisplay = ($page - 1) * $nbPostsToDisplayOnAPage;
+    $posts = $postsManager->getPostsList($firstPostToDisplay, $nbPostsToDisplayOnAPage);
    
     require_once('view/display_postsList.php');
 }
