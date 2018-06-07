@@ -19,7 +19,7 @@
 
 <nav>
     <a href="index.php">Blog</a>
-    <a href="index.php?action=postsList">Billet simple pour l'Alaska</a>
+    <a href="index.php?action=postsList&amp;page=1">Billet simple pour l'Alaska</a>
 
     <?php
         if(!isset($_SESSION)) {
@@ -67,7 +67,7 @@
             </p>
 
             <div id="book-cover">  
-                <a href="index.php?action=postsList" id="book-title">Billet simple pour l'Alaska</a>
+                <a href="index.php?action=postsList&amp;page=1" id="book-title">Billet simple pour l'Alaska</a>
                 <img src="public/images/nature.jpg" alt="Page de couverture du roman: loup">
             </div>
             
