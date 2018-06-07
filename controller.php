@@ -26,7 +26,7 @@ function listPosts($page) {
     $nbPages = ceil($nbPosts / $nbPostsToDisplayOnAPage);
 
     $firstPostToDisplay = ($page - 1) * $nbPostsToDisplayOnAPage;
-    $posts = $postsManager->getPostsList($firstPostToDisplay, $nbPostsToDisplayOnAPage);
+    $posts = $postsManager->getPostsListForReading($firstPostToDisplay, $nbPostsToDisplayOnAPage);
    
     require_once('view/display_postsList.php');
 }
@@ -81,7 +81,7 @@ function addComment($postId, $pseudo, $content) {
 
 function managementSpace() {
     $postsManager = new PostsManager();
-    $posts = $postsManager->getPostsList();
+    $posts = $postsManager->getPostsListForManagement();
     
     $commentsManager = new CommentsManager();
     $reportedComments = $commentsManager->getReportedComments();
