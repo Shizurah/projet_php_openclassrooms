@@ -1,6 +1,7 @@
 <?php
-// session_start();
-// INDEX.PHP = ROUTEUR
+// if (!isset($_SESSION)) {
+//     session_start();
+// }
 
 require_once('controller.php');
 
@@ -86,14 +87,14 @@ if (isset($_GET['action'])) {
     } 
 
     elseif ($_GET['action'] == 'deconnexion') {
-        //session_unset();
-        // session_destroy();
+        session_unset();
+        session_destroy();
         header('Location: index.php');
         exit;
     }
 }
 
 else {
-    listPosts();
+    mainPage();
 }
 

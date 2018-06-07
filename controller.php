@@ -1,4 +1,5 @@
 <?php
+
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -13,6 +14,9 @@ require_once('model/Comment.php');
 require_once('model/CommentsManager.php');
 
 
+function mainPage() {
+    require_once('view/display_main_blog_page.php');
+}
 
 function listPosts() {  
     $postsManager = new PostsManager();

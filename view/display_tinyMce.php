@@ -16,15 +16,24 @@
         <div class="header-management-space">
             <img src="public/images/connexion_form" alt="library">
         
-            <h2 id="tinyMce-page-title">
-                MODIFIER UN CHAPITRE
-            </h2>
+            <?php
+                if ($_GET['action'] == 'postWritting') {
+            ?>
+                    <h2 id="tinyMce-page-title">RÉDIGER UN CHAPITRE</h2>
+            <?php 
+                } elseif ($_GET['action'] == 'postUpdating') {
+            ?>
+                    <h2 id="tinyMce-page-title">MODIFIER UN CHAPITRE</h2>   
+            <?php
+                }
+            ?>
+            
 
             <a href="index.php?action=deconnexion" id="deconnexion-btn">Déconnexion</a>
         </div>
 
         <div id="redirections-btns">
-            <a href="index.php?action=postsList" class="redirections-btns">Blog</a>
+            <a href="index.php" class="redirections-btns">Blog</a>
             <a href="index.php?action=connexion" class="redirections-btns">Tableau de bord</a>    
         </div>
         

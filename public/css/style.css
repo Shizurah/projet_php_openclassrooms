@@ -1,6 +1,7 @@
 header {
     display: flex;
     justify-content: center;
+    margin-top: 50px;
 }
 
 header div:first-child {
@@ -11,30 +12,61 @@ header div:first-child {
     margin-bottom: 20px;
 }
 
-#titles, 
-#connexion-btn {
+#titles {
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#connexion-btn {
-    top: 10px;
-    right: 10px;
+nav {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    text-align: right;
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    top: 0;
+    right: 15%;
+    z-index: 5;
+    padding-right: 20px;
+    /* right: 10px; */
+    /* margin-top: 20px;
+    margin-bottom: 20px; */
+    background-color: white;
+
+}
+
+
+nav a {
     text-decoration: none;
-    color: #d6d8db;
+    color: black;
+    text-transform: uppercase;
+    margin-left: 20px;
+    font-weight: bold;
+    
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: rgb(74, 176, 207);
+}
+/* 
+#connexion-btn {
+    text-decoration: none;
+    color: black;
     display: block;
     border: 1px solid #d6d8db;
     border-radius: 3px;
     padding: 5px 8px 5px 8px;
     font-size: 0.8em;
-}
+} */
 
-#connexion-btn:hover {
+/* #connexion-btn:hover {
     background-color: rgba(142, 143, 145, 0.5);
     color: white;
-}
+} */
 
 h1, 
 h2 {
@@ -70,8 +102,8 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(142, 143, 145);
 }
+
 
 #book-cover:hover {
     cursor: pointer;
@@ -83,11 +115,18 @@ h2 {
 }
 
 #book-title {
-    opacity: 1;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 83%;
+    width: 90%;
     position: absolute;
-    color: white;
+    border: 3px solid white;
     font-style: normal;
-    font-size: 3.5em;
+    font-size: 3em;
+    color: white;
+    text-decoration: none;
 }
 
 #info {
@@ -102,6 +141,7 @@ h2 {
 
 body {
     width: 68.5%;
+    position: relative;
     margin: auto;
     font-family: "Raleway", sans-serif;
 }
@@ -110,7 +150,7 @@ section {
     display: flex;
 }
 
-#chapters-container {
+#presentation {
     width: 72%;
     margin-right: 40px;
 } 
@@ -166,9 +206,12 @@ strong {
 .posts {
     background-color: #f1f0ec;
     padding: 40px 50px 40px 50px;
+    margin: auto;
     margin-bottom: 20px;
     text-align: justify;
     border-radius: 5px;
+    width: 66%;
+    
 }
 
 #author-avatar {
@@ -221,11 +264,16 @@ h3 {
     top: -14px;
     background-color: white;
     padding: 0 20px;
-    /* position: absolute; */
-    /* left: 30%; */
-    margin: auto;
-    /* top: -10%; */
-    
+    margin: auto;  
+}
+
+
+
+
+/* AFFICHAGE CHAPITRES */
+
+#chapters-container {
+    /* flex-direction: column; */
 }
 
 

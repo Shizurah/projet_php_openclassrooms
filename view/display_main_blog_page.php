@@ -17,7 +17,6 @@
 // require_once('header.php');
 ?>
 
-
 <nav>
     <a href="index.php">Blog</a>
     <a href="index.php?action=postsList">Billet simple pour l'Alaska</a>
@@ -38,19 +37,20 @@
     ?>
 </nav>
 
+    
 <header>
     <div>
-        <img src="public/images/nature.jpg" alt="library"/>
-        <!-- <div id="titles">
+        <img src="public/images/library2.png" alt="library"/>
+        <div id="titles">
             <h1>Blog de Jean Forteroche</h1>
             <h2>Ecrivain contemporain et romancier</h2>
-        </div> -->
+        </div>
     </div>
 </header>
-
-    <section id="chapters-container">
+    
+    <section>
         
-        <!-- <div id="">
+        <div id="presentation">
             <p id="blog-intro">
                 Bonjour et bienvenue sur mon blog.<br/><br/>
                 Je commence ici l'écriture de mon nouveau roman, <strong>"Billet simple pour l'Alaska"</strong>.<br/><br/>
@@ -67,57 +67,15 @@
             </p>
 
             <div id="book-cover">  
-                <h2 id="book-title">Billet simple pour l'Alaska</h2>
-                <a href=""><img src="public/images/nature.jpg" alt="Page de couverture du roman: loup"></a>
+                <a href="index.php?action=postsList" id="book-title">Billet simple pour l'Alaska</a>
+                <img src="public/images/nature.jpg" alt="Page de couverture du roman: loup">
             </div>
+            
+            <p id="info">Cliquez sur la couverture pour accéder à la lecture du roman</p>
 
-            <p id="info">Cliquez sur la couverture pour accéder à la lecture du roman</p> -->
-        <div>
-        <?php
-            foreach($posts as $post) {
-            ?>
-
-            <div class="posts">
-                <h4>
-                    <?= $post->title() ?>
-                </h4>
-                <p>
-                    <?= $post->content() ?>
-
-                    <br/><br/>
-
-                    <em>Publié le <?= $post->postDateFr() ?></em> - <a href="index.php?action=post&amp;postId=<?= $post->id() ?>" class="links-beside-date">Commentaires</a>
-                </p>
-            </div>
-
-            <?php
-            }
-            ?>
         </div>
-            
-        
-
-        <!-- <aside>
-            <div class="aside-titles">
-                <h3>CHAPITRES</h3>
-            </div>
-            
-                
-            <?php
-                foreach($posts as $post) {
-            ?>
-            
-                    <a href="index.php?action=post&amp;postId=<?= $post->id() ?>" class="chapters-list"><?= $post->title() ?></a><br/>
-
-            <?php
-                }
-            ?> 
-        </aside> -->
 
         <?php
-        // require_once('aside.php');
-        ?> 
+            require_once('aside.php');
+        ?>
     </section>
-
-</body>
-</html>

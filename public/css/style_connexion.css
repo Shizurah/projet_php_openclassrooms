@@ -27,6 +27,14 @@ input {
     background-color: rgba(12, 137, 183, 0.5);
 }
 
+#blog-intro {
+    position: relative;
+}
+
+#blog-intro h2 {
+    position: absolute;
+}
+
 #img-background {
     /* background-color: #0e6c91; */
     position: relative;
@@ -53,8 +61,6 @@ input {
 }
 
 form {
-    /* position: relative; */
-    /* margin: auto; */
     margin-top: 30px;
 }
 
@@ -63,9 +69,6 @@ form label {
 }
 
 #background p {
-    /* position: relative; */
-    /* top: 80%%; */
-    /* margin-top: 30px; */
     font-style: italic;
     color: white;
     font-size: 0.9em;

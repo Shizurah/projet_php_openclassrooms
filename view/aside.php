@@ -20,7 +20,7 @@
     <br/><br/>
     <!-- <hr/> -->
     
-    <div class="aside-titles">
+    <!-- <div class="aside-titles">
         <h3>CHAPITRES</h3>
     </div>
     
@@ -33,5 +33,5 @@
 
     <?php
         }
-    ?>
+    ?> -->
 </aside>
