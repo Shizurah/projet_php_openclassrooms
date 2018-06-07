@@ -51,9 +51,13 @@ class PostsManager {
         return $nbPosts;
     }
 
-    public function getPostsList() {
-        $req = $this->_db->query('SELECT id, title, DATE_FORMAT(postDate, \'%d/%m/%Y\') AS postDateFr, content FROM posts ORDER BY postDateFr');
+    public function getPostsList($firstPostToDisplay, $nbPostsToDisplayOnAPage) {
+        $req = $this->_db->prepare('SELECT id, title, DATE_FORMAT(postDate, \'%d/%m/%Y\') AS postDateFr, content FROM posts ORDER BY postDateFr LIMIT :firstPost, :nbPosts');
 
+        $req->bindParam(':firstPost', $firstPostToDisplay, PDO::PARAM_INT);
+        $req->bindParam(':nbPosts', $nbPostsToDisplayOnAPage, PDO::PARAM_INT);
+        $req->execute();
+        
         $posts = [];
 
         while ($data = $req->fetch()) {
