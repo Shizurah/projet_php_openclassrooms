@@ -94,6 +94,8 @@
             }
             ?>
         </div>
+
+        
             
         
 
@@ -118,6 +120,18 @@
         // require_once('aside.php');
         ?> 
     </section>
+
+    <footer>
+    Page :
+        <?php
+            $i;
+            for ($i = 1; $i <= $nbPages; $i++) {
+        ?>
+                <a href="index.php?action=postsList&amp;page=<?= $i ?>"><?= $i ?></a>
+        <?php
+            }
+        ?>   
+    </footer>
 
 </body>
 </html>
