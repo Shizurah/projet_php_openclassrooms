@@ -37,23 +37,6 @@ h3 {
     top: 35%;
 }
 
-#deconnexion-btn {
-    top: 10px;
-    right: 10px;
-    text-decoration: none;
-    color: #d6d8db;
-    display: block;
-    border: 1px solid #d6d8db;
-    border-radius: 3px;
-    padding: 5px 8px 5px 8px;
-    font-size: 0.8em;  
-}
-
-#deconnexion-btn:hover {
-    background-color: rgba(142, 143, 145, 0.5);
-    color: white;
-}
-
 h3 {
     margin-top: 80px;
 }
@@ -262,6 +245,3 @@ form {
     background-color: rgb(51, 99, 49);
 }
 
-#chapter-reference-link {
-
-}

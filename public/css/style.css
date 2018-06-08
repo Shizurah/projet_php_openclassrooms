@@ -20,21 +20,14 @@ header {
 
 nav {
     display: flex;
-    justify-content: right;
     align-items: center;
-    text-align: right;
     position: fixed;
-    height: 50px;
-    width: 100%;
-    top: 0;
-    right: 15%;
+    position: absolute;
+    top: -50px;
+    right: 0;
     z-index: 5;
-    padding-right: 20px;
-    /* right: 10px; */
-    /* margin-top: 20px;
-    margin-bottom: 20px; */
+    height: 50px;
     background-color: white;
-
 }
 
 
@@ -51,21 +44,6 @@ nav a:hover {
     text-decoration: underline;
     color: rgb(74, 176, 207);
 }
-/* 
-#connexion-btn {
-    text-decoration: none;
-    color: black;
-    display: block;
-    border: 1px solid #d6d8db;
-    border-radius: 3px;
-    padding: 5px 8px 5px 8px;
-    font-size: 0.8em;
-} */
-
-/* #connexion-btn:hover {
-    background-color: rgba(142, 143, 145, 0.5);
-    color: white;
-} */
 
 h1, 
 h2 {
