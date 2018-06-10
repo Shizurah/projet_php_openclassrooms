@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
     <title>Document</title>
-    <link rel="stylesheet" href="../public/css/style_connexion.css"/>
+    <link rel="stylesheet" href="public/css/style_connexion.css"/>
 </head>
 
 <body>
@@ -14,10 +14,10 @@
         Se connecter à l'espace d'administration
     </p> -->
     <div id="img-background">
-        <img src="../public/images/connexion_form.png" alt="library">
+        <img src="public/images/connexion_form.png" alt="library">
 
         <div id="background">
-            <form action="../index.php?action=connexion" method="post">
+            <form action="index.php?action=connexion" method="post">
                 <label for="pseudo">Pseudo </label>
                 <label for="mdp" id="label-id">Mot de passe </label><br/>
 
