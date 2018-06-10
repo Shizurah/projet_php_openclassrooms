@@ -21,19 +21,19 @@
     <body>
         <header>
             <nav>
-                <a href="index.php">Blog</a>
+                <a href="index.php?action=blog">Blog</a>
                 <a href="index.php?action=postsList&amp;page=1">Billet simple pour l'Alaska</a>
 
                 <?php
-                    if(!isset($_SESSION)) {
+                    if(!isset($_SESSION['pseudo'])) {
                 ?>
-                        <a href="view/connexion.php" id="connexion-btn">Connexion</a>
+                        <a href="index.php?action=connexionPage" id="connexion-btn">Connexion</a>
                         
                         
                 <?php
                     } else {
                 ?>
-                        <a href="index.php?action=connexion">Mon espace</a>
+                        <a href="index.php?action=mySpace">Mon espace</a>
                         <a href="index.php?action=deconnexion" id="connexion-btn">Déconnexion</a>
                 <?php
                     }

@@ -1,7 +1,4 @@
 <?php
-// if (!isset($_SESSION)) {
-//     session_start();
-// }
 
 require_once('controller.php');
 
@@ -11,6 +8,10 @@ if (isset($_GET['action'])) {
         if (isset($_GET['page'])) {
             listPosts($_GET['page']);
         }   
+    }
+
+    elseif ($_GET['action'] == 'blog') {
+        mainPage();
     }
 
     elseif ($_GET['action'] == 'post') {
@@ -28,24 +29,19 @@ if (isset($_GET['action'])) {
         }
     }
 
+    elseif ($_GET['action'] == 'connexionPage') {
+        connexionPage();
+    }
+
     elseif ($_GET['action'] == 'connexion') {
-    
         if (isset($_POST['pseudo']) && isset($_POST['mdp'])) {
-            if ($_POST['pseudo'] == 'Jean' && $_POST['mdp'] == '45F!nb0H') {
-                if (!isset($_SESSION)) {
-                    session_start();
-                }
-            
-                managementSpace();
-
-            } else {
-                header('Location: view/connexion.php');
-            }
+            connexion($_POST['pseudo'], $_POST['mdp']);
         }
+    }
 
-        elseif (isset($_SESSION)) {
-            managementSpace();
-        }
+    // retour à l'espace d'administration qd connecté :
+    elseif ($_GET['action'] == 'mySpace') { 
+        managementSpace();
     }
 
     elseif ($_GET['action'] == 'postWritting') {
@@ -89,14 +85,16 @@ if (isset($_GET['action'])) {
     } 
 
     elseif ($_GET['action'] == 'deconnexion') {
+        session_start();
         session_unset();
         session_destroy();
+        
         header('Location: index.php');
         exit;
     }
-}
 
-else {
+} else {
+    // var_dump($_SESSION);
     mainPage();
 }
 

@@ -18,6 +18,8 @@ class UserManager {
 
         $data = $req->fetch();
 
-        return new User($data);
+        if (!empty($data)) {
+            return  new User($data);
+        }        
     }
 }

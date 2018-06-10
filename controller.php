@@ -1,9 +1,5 @@
 <?php
 
-if (!isset($_SESSION)) {
-    session_start();
-}
-
 require_once('model/Post.php');
 require_once('model/PostsManager.php');
 
@@ -14,11 +10,25 @@ require_once('model/Comment.php');
 require_once('model/CommentsManager.php');
 
 
+function startSession() {
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+}
+
 function mainPage() {
+    startSession();
     require_once('view/display_main_blog_page.php');
 }
 
-function listPosts($page) {  
+// function mainPageConnected() {
+//     startSession();
+//     require_once('view/display_main_blog_page.php');
+// }
+
+function listPosts($page) { 
+    startSession();
+
     $postsManager = new PostsManager();
     $nbPosts = $postsManager->countPosts();
 
@@ -32,6 +42,8 @@ function listPosts($page) {
 }
 
 function post($postId) {
+    startSession();
+
     $postsManager = new PostsManager();
     $post = $postsManager->get($postId);
 
@@ -42,35 +54,58 @@ function post($postId) {
 }
 
 function postForWritting() {
-    require_once('view/display_tinyMce.php');
+    startSession();
+    
+    if (isset($_SESSION['pseudo'])) {
+        require_once('view/display_tinyMce.php');
+
+    } else {
+        require_once('view/connexion.php');
+    }
 }
 
 function addPost($title, $content) {
-    $postsManager = new PostsManager();
-    $postsManager->add($title, $content);
+    startSession();
 
-    $post = $postsManager->getLastPost();
-    require_once('view/display_tinyMce.php');
-    // require_once('view/display_tinyMce.php');
+    if (isset($_SESSION['pseudo'])) {
+        $postsManager = new PostsManager();
+        $postsManager->add($title, $content);
 
-    // $post = new Post($title, $content)
+        $post = $postsManager->getLastPost();
 
-    // $postsManager->add($post);
+        require_once('view/display_tinyMce.php');
+
+    } else {
+        require_once('view/connexion.php');
+    }
 }
 
 function postForUpdating($postId) {
-    $postsManager = new PostsManager();
-    $post = $postsManager->get($postId);
-    
-    require_once('view/display_tinyMce.php');
-  
+    startSession();
+
+    if (isset($_SESSION['pseudo'])) {
+        $postsManager = new PostsManager();
+        $post = $postsManager->get($postId);
+        
+        require_once('view/display_tinyMce.php');
+
+    } else {
+        require_once('view/connexion.php');
+    }
 }
 
 function updatePost($postId, $postTitle, $postContent) {
-    $postsManager = new PostsManager();
-    $postsManager->update($postId, $postTitle, $postContent);
+    startSession();
 
-    require_once('view/display_tinyMce.php');
+    if (isset($_SESSION['pseudo'])) {
+        $postsManager = new PostsManager();
+        $postsManager->update($postId, $postTitle, $postContent);
+
+        require_once('view/display_tinyMce.php');
+
+    } else {
+        require_once('view/connexion.php');
+    }
 }
 
 function addComment($postId, $pseudo, $content) {
@@ -78,25 +113,59 @@ function addComment($postId, $pseudo, $content) {
     $commentsManager->add($postId, $pseudo, $content);
 }
 
+///////////////////////////////////////////////////////////////
+function connexionPage() {
+    require_once('view/connexion.php');
+}
+
+function connexion($pseudo, $password) {
+    $userManager = new UserManager();
+
+    $user = $userManager->getUser($pseudo, $password);
+
+    if (!empty($user)) {
+        session_start();
+        $_SESSION['pseudo'] = $pseudo;
+
+        managementSpace();
+
+    } else {
+        header('Location: view/connexion.php');
+    }
+}
 
 function managementSpace() {
-    $postsManager = new PostsManager();
-    $posts = $postsManager->getPostsListForManagement();
+    startSession();
     
-    $commentsManager = new CommentsManager();
-    $reportedComments = $commentsManager->getReportedComments();
+    if (isset($_SESSION['pseudo'])) {
+        $postsManager = new PostsManager();
+        $posts = $postsManager->getPostsListForManagement();
+        
+        $commentsManager = new CommentsManager();
+        $reportedComments = $commentsManager->getReportedComments();
 
-    require_once('view/display_management_space.php');
+        require_once('view/display_management_space.php');
+
+    } else {
+        require_once('view/connexion.php');
+    }
 }
 
 function deletePost($postId) {
-    $postsManager = new PostsManager();
-    $postsManager->delete($postId);
+    startSession();
 
-    $commentsManager = new CommentsManager();
-    $commentsManager->deleteAllCommentsForOnePost($postId);
+    if (isset($_SESSION['pseudo'])) {
+        $postsManager = new PostsManager();
+        $postsManager->delete($postId);
 
-    managementSpace();
+        $commentsManager = new CommentsManager();
+        $commentsManager->deleteAllCommentsForOnePost($postId);
+
+        managementSpace();
+
+    } else {
+        require_once('view/connexion.php');
+    }
 }
 
 function reportComment($commentId, $postId) {
@@ -107,9 +176,16 @@ function reportComment($commentId, $postId) {
 }
 
 function deleteComment($commentId) {
-    $commentsManager = new CommentsManager;
-    $commentsManager->delete($commentId);
+    startSession();
 
-    header('Location: index.php?action=connexion');
-    exit;
+    if (isset($_SESSION['pseudo'])) {
+        $commentsManager = new CommentsManager;
+        $commentsManager->delete($commentId);
+
+        header('Location: index.php?action=connexion');
+        exit;
+
+    } else {
+        require_once('view/connexion.php');
+    }
 }

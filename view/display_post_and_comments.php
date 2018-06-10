@@ -12,6 +12,30 @@
 
     <body>
         <div id="main-wrapper-for-one-post">
+
+            <header>
+                <nav>
+                    <a href="index.php?action=blog">Blog</a>
+                    <a href="index.php?action=postsList&amp;page=1">Billet simple pour l'Alaska</a>
+
+                    <?php
+                        if(!isset($_SESSION['pseudo'])) {
+                    ?>
+                            <a href="index.php?action=connexionPage" id="connexion-btn">Connexion</a>
+                            
+                            
+                    <?php
+                        } else {
+                    ?>
+                            <a href="index.php?action=mySpace">Mon espace</a>
+                            <a href="index.php?action=deconnexion" id="connexion-btn">Déconnexion</a>
+                    <?php
+                        }
+                    ?>
+                </nav>
+
+                <!-- <img src="public/images/nature1.png" alt="library"/> -->
+            </header>
             
             <div class="posts">
                 <h3 id="post-title"><?= $post->title() ?></h3>
