@@ -21,11 +21,6 @@ function mainPage() {
     require_once('view/display_main_blog_page.php');
 }
 
-// function mainPageConnected() {
-//     startSession();
-//     require_once('view/display_main_blog_page.php');
-// }
-
 function listPosts($page) { 
     startSession();
 
@@ -50,7 +45,7 @@ function post($postId) {
     $commentsManager = new CommentsManager();
     $comments = $commentsManager->getComments($postId);
     
-    require_once('view/display_post_and_comments.php');
+    require_once('view/display_post_and_comments.php');   
 }
 
 function postForWritting() {
@@ -113,7 +108,6 @@ function addComment($postId, $pseudo, $content) {
     $commentsManager->add($postId, $pseudo, $content);
 }
 
-///////////////////////////////////////////////////////////////
 function connexionPage() {
     require_once('view/connexion.php');
 }
@@ -182,7 +176,7 @@ function deleteComment($commentId) {
         $commentsManager = new CommentsManager;
         $commentsManager->delete($commentId);
 
-        header('Location: index.php?action=connexion');
+        header('Location: index.php?action=mySpace');
         exit;
 
     } else {

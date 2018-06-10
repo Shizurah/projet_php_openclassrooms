@@ -29,7 +29,12 @@ class PostsManager {
         
         $data = $req->fetch();
 
-        return new Post($data);
+        if (!empty($data)) {
+            return new Post($data);
+        } else {
+            throw new Exception(' ce chapitre n\'existe pas.');
+        }
+        
     }
 
     public function getLastPost() {
@@ -88,13 +93,25 @@ class PostsManager {
             'post_title' => $postTitle,
             'post_content' => $postContent            
         ));
-    }
+    } 
 
     public function delete($postId) {
-        $req = $this->_db->prepare('DELETE FROM posts WHERE id = ?');
+        $postToDelete = $this->_db->prepare('DELETE FROM posts WHERE id = ?');
+
+        if ($this->exists($postId)) {
+            $postToDelete->execute(array($postId));
+
+        } else {
+            throw new Exception(' ce chapitre n\'existe pas.');
+        }
+    }   
+
+    public function exists($postId) {
+        $req = $this->_db->prepare('SELECT id FROM posts WHERE id = ?');
         $req->execute(array($postId));
 
-        // $req = $this->_db->exec('DELETE FROM posts WHERE id =' . $post->id());
+        $data = $req->fetch();
+
+        return !empty($data);
     }
-    
 }
