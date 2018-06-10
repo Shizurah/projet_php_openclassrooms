@@ -362,3 +362,24 @@ footer {
     text-align: center;
     margin-bottom: 50px;
 }
+
+/* message d'erreur */
+
+#error-msg {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(196, 190, 190);
+    border-radius: 5px;
+    padding: 20px;
+    margin: auto;
+    margin-top: 60px;
+}
+
+#error-msg img {
+    margin-right: 10px;
+}
+
+#error-msg span {
+    font-weight: bold;
+    margin-right: 5px;
+}
