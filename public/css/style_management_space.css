@@ -153,13 +153,15 @@ td, th {
     left: 528px;
 }
 
-#success-msg {
+#success-msg,
+#success-msg-for-deleting-comment {
     display: flex;
     align-items: center;
     display: hidden;
 }
 
-#success-msg p {
+#success-msg p,
+#success-msg-for-deleting-comment p {
     display: flex;
     justify-content: center;
     align-items: center;

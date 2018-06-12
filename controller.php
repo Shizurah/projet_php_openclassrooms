@@ -30,10 +30,16 @@ function listPosts($page) {
     $nbPostsToDisplayOnAPage = 5;
     $nbPages = ceil($nbPosts / $nbPostsToDisplayOnAPage);
 
-    $firstPostToDisplay = ($page - 1) * $nbPostsToDisplayOnAPage;
-    $posts = $postsManager->getPostsListForReading($firstPostToDisplay, $nbPostsToDisplayOnAPage);
-   
-    require_once('view/display_postsList.php');
+    if ($page <= $nbPages) {
+        $firstPostToDisplay = ($page - 1) * $nbPostsToDisplayOnAPage;
+        $posts = $postsManager->getPostsListForReading($firstPostToDisplay, $nbPostsToDisplayOnAPage);
+    
+        require_once('view/display_postsList.php');
+
+    } else {
+        throw new Exception('cette page n\'existe pas.');
+    }
+    
 }
 
 function post($postId) {
@@ -124,7 +130,7 @@ function connexion($pseudo, $password) {
         managementSpace();
 
     } else {
-        header('Location: view/connexion.php');
+        require_once('view/connexion.php');
     }
 }
 
@@ -176,8 +182,8 @@ function deleteComment($commentId) {
         $commentsManager = new CommentsManager;
         $commentsManager->delete($commentId);
 
-        header('Location: index.php?action=mySpace');
-        exit;
+        managementSpace();
+        // require_once('view/display_management_space.php');
 
     } else {
         require_once('view/connexion.php');

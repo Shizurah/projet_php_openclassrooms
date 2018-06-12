@@ -7,9 +7,12 @@ try {
     if (isset($_GET['action'])) {
 
         if ($_GET['action'] == 'postsList') {
-            if (isset($_GET['page'])) {
+            if (isset($_GET['page']) && $_GET['page'] > 0) {
                 listPosts($_GET['page']);
-            }   
+
+            } else {
+                throw new Exception('aucun numéro de page envoyé.');
+            }
         }
     
         elseif ($_GET['action'] == 'blog') {

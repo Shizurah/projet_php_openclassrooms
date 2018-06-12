@@ -22,7 +22,7 @@
         <header>
             <nav>
                 <a href="index.php?action=blog">Blog</a>
-                <a href="index.php?action=postsList&amp;page=1">Billet simple pour l'Alaska</a>
+                <a href="index.php?action=postsList&amp;page=1">Roman</a>
 
                 <?php
                     if(!isset($_SESSION['pseudo'])) {
@@ -46,8 +46,6 @@
             </div>      
         </header>
         
-
-
 
         <h3>AJOUTER UN CHAPITRE</h3>
 
@@ -99,6 +97,18 @@
         
         <h3>MODÉRER LES COMMENTAIRES</h3>
 
+        <div id="success-msg-for-deleting-comment">
+            <?php
+                if ($_GET['action'] == "deleteComment") {
+            ?>
+                    <p>
+                        Le <span> commentaire </span> a été supprimé avec succès !   
+                    </p>
+            <?php
+                } 
+            ?>
+        </div>
+
         <table>
 
             <tr>
@@ -119,7 +129,7 @@
                     <td><?= $reportedComment->reportings() ?> fois</td>
                     <td>
                         <a href="index.php?action=post&amp;postId=<?= $reportedComment->postId() ?>" id="chapter-reference-btn">Voir chapitre correspondant</a><br/>
-                        <a href="index.php?action=deleteComment&amp;commentId=<?= $reportedComment->id() ?>" id="deleting-comment-link">Supprimer</a>
+                        <a href="index.php?action=deleteComment&amp;commentId=<?= $reportedComment->id() ?>#success-msg-for-deleting-comment" id="deleting-comment-link">Supprimer</a>
                     </td>
                 </tr>
         <?php
@@ -128,6 +138,6 @@
         </table>
         <br/><br/>
 
-        <script src="view/posts_and_comments_management.js"></script>
+        <script src="js/posts_and_comments_management.js"></script>
     </body>
 </html>
