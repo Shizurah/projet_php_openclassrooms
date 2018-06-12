@@ -156,6 +156,7 @@ td, th {
 #success-msg,
 #success-msg-for-deleting-comment {
     display: flex;
+    justify-content: center;
     align-items: center;
     display: hidden;
 }
@@ -165,7 +166,6 @@ td, th {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* width: 20%; */
     padding: 12px 10px;
     border-radius: 5px;
     border: 1px solid #b5b8bc;

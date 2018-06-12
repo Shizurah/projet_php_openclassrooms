@@ -23,8 +23,6 @@ class Comment {
         }
     }
 
-    // getters :
-
     public function id() {
         return $this->_id;
     }
@@ -49,17 +47,12 @@ class Comment {
         return $this->_reportings;
     }
 
-
-    //setters :
-
     public function setId($id) {
         $this->_id = $id;
     }
 
     public function setPostId($postId) {
-        // if (is_int($postId) && $postId > 0) {
-            $this->_postId = $postId;
-        // }       
+        $this->_postId = $postId;   
     }
 
     public function setAuthor($author) {

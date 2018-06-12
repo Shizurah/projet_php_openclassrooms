@@ -28,10 +28,6 @@ class User {
         return $this->_pseudo;
     }
 
-    // public function password() {
-    //     return $this->_password;
-    // }
-
     public function setId($id) {
         $id = (int) $id;
         if ($id > 0) {

@@ -1,6 +1,6 @@
 <?php
 
-require_once('controller.php');
+require_once('controller/controller.php');
 
 try {
 
@@ -15,10 +15,6 @@ try {
             }
         }
     
-        elseif ($_GET['action'] == 'blog') {
-            mainPage();
-        }
-    
         elseif ($_GET['action'] == 'post') {
             if (isset($_GET['postId']) && $_GET['postId'] > 0) {
                 post($_GET['postId']);
@@ -31,9 +27,6 @@ try {
         elseif ($_GET['action'] == 'addComment') {
             if (isset($_POST['pseudoComment']) && isset($_POST['comment']) && isset($_GET['postId']) && $_GET['postId'] > 0) {
                 addComment($_GET['postId'], $_POST['pseudoComment'], $_POST['comment']);
-    
-                header('Location: index.php?action=post&postId=' .$_GET['postId']);
-                exit;
             }
         }
     

@@ -307,6 +307,7 @@ h3 {
 
 #comments-title {
     text-align: left;
+    margin-bottom: 15px;
     font-size: 1.2em;
 }
 
@@ -350,7 +351,13 @@ form,
     background-color: rgb(51, 99, 49);
 }
 
+#confirmation-msg-for-comment-reporting {
+    color: green;
+    margin-top: 0;
+}
+
 .comments {
+    margin-bottom: 20px;
     position: relative;
     border: 1px solid #b5b8bc;
     padding: 20px;
@@ -560,7 +567,6 @@ form,
     }
 
     #pagination {
-        /* top: 22px; */
         right: 2%;
         font-size: 0.7em;
     }

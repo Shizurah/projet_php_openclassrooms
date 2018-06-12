@@ -21,8 +21,7 @@
             <img src="public/images/youtube.png" alt="Icône Youtube" width="26px" height="27px">
         </div>
     </div>
-    
-    
+
     <br/><br/>    
 
 </aside>
