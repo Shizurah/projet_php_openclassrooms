@@ -11,8 +11,11 @@ function displayMsg(msg) {
     // tr.style.transition = 'all 2s ease-in';
 }
 
-
 deletingBtn.addEventListener('click', displayMsg(successMsg));
-
 updatingBtn.addEventListener('click', displayMsg(successMsg));
 
+
+var successMsgForDeletingComment = document.getElementById('success-msg-for-deleting-comment');
+var deletingCommentLink = document.getElementById('deleting-comment-link');
+
+deletingCommentLink.addEventListener('click', displayMsg(successMsgForDeletingComment));
