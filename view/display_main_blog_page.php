@@ -13,14 +13,10 @@
 
 <body>
 
-<?php
-// require_once('header.php');
-?>
-
     <header>
         <nav>
             <a href="index.php">Blog</a>
-            <a href="index.php?action=postsList&amp;page=1">Billet simple pour l'Alaska</a>
+            <a href="index.php?action=postsList&amp;page=1">Roman</a>
 
             <?php
                 if(!isset($_SESSION['pseudo'])) {
@@ -70,7 +66,7 @@
                 <img src="public/images/nature.jpg" alt="Page de couverture du roman: loup">
             </div>
             
-            <p id="info">Cliquez sur la couverture pour accéder à la lecture du roman</p>
+            <p id="info">Cliquez sur la couverture pour accéder à la lecture du roman.</p>
 
         </div>
 

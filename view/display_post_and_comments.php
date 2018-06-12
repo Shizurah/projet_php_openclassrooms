@@ -11,19 +11,19 @@
     </head>
 
     <body>
+
         <div id="main-wrapper-for-one-post">
 
             <header>
                 <nav>
                     <a href="index.php?action=blog">Blog</a>
-                    <a href="index.php?action=postsList&amp;page=1">Billet simple pour l'Alaska</a>
+                    <a href="index.php?action=postsList&amp;page=1">Roman</a>
 
                     <?php
                         if(!isset($_SESSION['pseudo'])) {
                     ?>
                             <a href="index.php?action=connexionPage" id="connexion-btn">Connexion</a>
-                            
-                            
+                              
                     <?php
                         } else {
                     ?>
@@ -37,14 +37,24 @@
                 <!-- <img src="public/images/nature1.png" alt="library"/> -->
             </header>
             
-            <div class="posts">
+
+            <div id="container-for-one-post" class="posts">
+
                 <h3 id="post-title"><?= $post->title() ?></h3>
-                <p><?= $post->content() ?></p>
+
+                <div id="post-content">
+                    <?= $post->content() ?>
+                </div>
+
                 <em>Publié le <?= $post->postDateFr() ?></em> - <a href="index.php" class="links-beside-date">Retour au blog</a>
+
                 <br/>
+
                 <button id="writting-comment-btn">Commenter</button>
 
+
                 <form action="index.php?action=addComment&amp;postId=<?= $post->id() ?>" method="post" id="comment-form">
+
                     <label for="pseudo">Pseudo</label><br/>
                     <input type="text" name="pseudoComment" id="pseudo" required> <br/>
 
@@ -53,34 +63,30 @@
 
                     <input type="submit" value="Envoyer" id="sending-comment-btn">
                     <br/><br/>
+
                 </form>
 
             </div>
 
-            
-
-            <br/><br/><br/>
-
             <h4 id="comments-title">Commentaires</h4>
-            
-
+        
             <?php
             foreach ($comments as $comment) {
             ?>
-    
                 <p class="comments">
                     <strong><?= $comment->author() ?></strong>, le <?= $comment->commentDateFr() ?> - <a href="index.php?action=reportComment&amp;commentId=<?= $comment->id() ?>&amp;postId=<?= $post->id() ?>" class="links-beside-date reporting-comment-links">Signaler</a> <br/> 
                     <?= $comment->content() ?>
 
                     <br/>
                 </p>
-
             <?php
             }
             ?>
-        </div>
-        
+            
+            <br/>
 
-        <script src="view/add_and_report_comment.js"></script>
+        </div>
+
+        <script src="js/add_and_report_comment.js"></script>
     </body>
 </html>
