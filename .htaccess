@@ -1,4 +1,4 @@
-ErrorDocument 404 http://localhost/projet4_php_blog_ecrivain?error=404
+ErrorDocument 404 http://www.eloise-martin.com/projet4?error=404
 
 
 
