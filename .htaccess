@@ -1,0 +1,4 @@
+ErrorDocument 404 http://localhost/projet4_php_blog_ecrivain?error=404
+
+
+

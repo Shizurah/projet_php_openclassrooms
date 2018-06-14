@@ -4,6 +4,13 @@ require_once('controller/controller.php');
 
 try {
 
+    if (isset($_GET['error'])) {
+
+        if ($_GET['error'] == '404') {
+            throw new Exception ('la page demandée n\'existe pas.');
+        }
+    }
+
     if (isset($_GET['action'])) {
 
         if ($_GET['action'] == 'postsList') {
@@ -13,7 +20,7 @@ try {
             } else {
                 throw new Exception('aucun numéro de page envoyé.');
             }
-        }
+        } 
     
         elseif ($_GET['action'] == 'post') {
             if (isset($_GET['postId']) && $_GET['postId'] > 0) {
@@ -34,6 +41,8 @@ try {
             connexionPage();
         }
     
+        /////////////////////
+        
         elseif ($_GET['action'] == 'connexion') {
             if (isset($_POST['pseudo']) && isset($_POST['mdp'])) {
                 connexion($_POST['pseudo'], $_POST['mdp']);
@@ -104,11 +113,16 @@ try {
             session_unset();
             session_destroy();
             
-            header('Location: index.php');
+            header('Location: http://www.eloise-martin.com/projet4');
             exit;
         }
+
+        else {
+            throw new Exception ('action non valide');
+        }
+    }
     
-    } else {
+    else {
         mainPage();
     }
     
